@@ -119,6 +119,16 @@
         });
     }
 
+    // Set incrementing numbers for section headers
+    function setSectionHeaderNumbers() {
+        const sectionHeaders = document.querySelectorAll('.section-header h2');
+        
+        sectionHeaders.forEach((header, index) => {
+            const number = (index + 2).toString().padStart(2, '0');
+            header.style.setProperty('--section-number', "'" + number + "'");
+        });
+    }
+
     // Initialize
     function init() {
         // Set header transition
@@ -143,6 +153,7 @@
         updateActiveNav();
         toggleNavbar();
         animateStats();
+        setSectionHeaderNumbers();
     }
 
     // Run when DOM is ready
