@@ -1,5 +1,8 @@
-/* Hybrid Design - Mix of Original + Hudson */
+/* =============================================
+   Portfolio - Mobile First CSS
+   ============================================= */
 
+/* --- CSS Variables --- */
 :root {
     --color-primary: #0d6efd;
     --color-primary-dark: #0b5ed7;
@@ -11,8 +14,10 @@
     --transition: all 0.3s ease;
 }
 
-/* Base Styles */
-* {
+/* --- Reset & Base (Mobile) --- */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,25 +25,28 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
     font-family: var(--font-main);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--color-dark);
     overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
 }
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
 
 a {
     text-decoration: none;
@@ -51,15 +59,17 @@ img {
     height: auto;
 }
 
-/* Header */
+/* =============================================
+   HEADER - Mobile First
+   ============================================= */
 .s-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: var(--transition);
-    padding: 1rem 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background 0.3s ease;
+    padding: 0.75rem 0;
 }
 
 .s-header.scrolled {
@@ -72,30 +82,49 @@ img {
     padding: 0;
 }
 
-.s-header .navbar-brand img {
-    height: 40px;
+/* Text brand styling */
+.s-header .navbar-brand {
+    font-size: 1.5rem;
+    color: var(--color-white);
+    letter-spacing: -0.5px;
+}
+
+.s-header.scrolled .navbar-brand {
+    color: var(--color-dark);
+}
+
+/* Mobile navbar dropdown */
+.s-header .navbar-collapse {
+    background: var(--color-white);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .s-header .nav-link {
-    color: var(--color-white) !important;
+    color: var(--color-dark) !important;
     font-weight: 500;
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    padding: 0.5rem 1rem !important;
+    padding: 0.75rem 0 !important;
     transition: var(--transition);
 }
 
-.s-header.scrolled .nav-link {
-    color: var(--color-dark) !important;
+.s-header .nav-link:hover,
+.s-header .nav-link.active {
+    color: var(--color-primary) !important;
 }
 
-.s-header .nav-link:hover {
-    opacity: 0.7;
-}
-
+/* Hamburger icon - white on hero, dark when scrolled */
 .s-header .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.5);
+    padding: 0.25rem 0.5rem;
+}
+
+.s-header .navbar-toggler:focus {
+    box-shadow: none;
 }
 
 .s-header .navbar-toggler-icon {
@@ -110,10 +139,12 @@ img {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Hero Section */
+/* =============================================
+   HERO SECTION - Mobile First
+   ============================================= */
 .hero-section {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    background: url('IMG_20251129_174406\ 2.JPEG') center bottom / cover no-repeat;
     display: flex;
     align-items: center;
     position: relative;
@@ -121,68 +152,78 @@ img {
     overflow: hidden;
 }
 
-.hero-section::before {
-    content: '';
+/* Dark overlay for readability */
+.hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    background-size: 100px 100px;
-    opacity: 0.5;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    padding: 120px 0 80px;
+    padding: 5rem 0 4rem;
+    text-align: center;
 }
 
 .hero-greeting {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
     opacity: 0.9;
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(1.75rem, 6vw, 4.5rem);
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     line-height: 1.1;
 }
 
 .hero-subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.95rem, 2.5vw, 1.5rem);
     font-weight: 300;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     opacity: 0.9;
 }
 
+/* Hero buttons - stack on mobile */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
 .hero-buttons .btn {
-    padding: 1rem 2.5rem;
+    padding: 0.75rem 1.75rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border-width: 2px;
+    width: 100%;
+    max-width: 280px;
 }
 
-.hero-social-vertical {
-    position: relative;
-    z-index: 1;
+/* Hero social links - horizontal row on mobile */
+.hero-social {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-end;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .social-link {
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
@@ -190,7 +231,7 @@ img {
     align-items: center;
     justify-content: center;
     color: var(--color-white);
-    font-size: 1.3rem;
+    font-size: 1rem;
     transition: var(--transition);
 }
 
@@ -201,14 +242,15 @@ img {
     transform: translateY(-3px);
 }
 
+/* Scroll down indicator */
 .scroll-down {
     position: absolute;
-    bottom: 3rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     color: var(--color-white);
     text-align: center;
-    z-index: 1;
+    z-index: 2;
     opacity: 0.7;
     transition: var(--transition);
 }
@@ -220,68 +262,63 @@ img {
 
 .scroll-down span {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .scroll-down i {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-10px);
-    }
-
-    60% {
-        transform: translateY(-5px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
 }
 
-/* Section Styles */
+/* =============================================
+   SECTION SHARED STYLES - Mobile First
+   ============================================= */
 .section-header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
     position: relative;
     display: inline-block;
     z-index: 2;
 }
 
+/* Section number watermark */
 .section-header h2::before {
     content: var(--section-number, '');
-    opacity: 0.2;
-    font-size: 5rem;
+    opacity: 0.08;
+    font-size: 3.5rem;
     position: absolute;
-    left: -6%;
-    top: -50%;
+    left: -8%;
+    top: -40%;
     color: var(--color-primary);
-    z-index: 0;
+    z-index: -1;
+    font-weight: 700;
 }
 
+/* Dot after heading */
 .section-header h2::after {
     content: '.';
     color: var(--color-primary);
 }
 
-/* About Section */
+/* =============================================
+   ABOUT SECTION - Mobile First
+   ============================================= */
 .section-about {
-    padding: 6rem 0;
+    padding: 4rem 0;
 }
 
 .about-content {
@@ -290,52 +327,67 @@ img {
 
 .about-image {
     position: relative;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
 .about-image img {
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .about-text p {
     color: var(--color-gray);
     margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
 .about-text .lead {
     color: var(--color-dark);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .about-info {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .about-info h5 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: var(--color-dark);
 }
 
 .about-info ul li {
-    padding: 0.3rem 0;
+    padding: 0.25rem 0;
     color: var(--color-gray);
     position: relative;
     padding-left: 1rem;
+    font-size: 0.9rem;
 }
 
 .about-info ul li::before {
-    content: '•';
-    color: var(--color-primary);
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
     position: absolute;
     left: 0;
+    top: 0.65em;
 }
 
-/* Skills Section */
+/* =============================================
+   SKILLS SECTION - Mobile First
+   ============================================= */
 .section-skills {
-    padding: 6rem 0;
+    padding: 4rem 0;
+}
+
+.skill-icon {
+    font-size: 2rem;
 }
 
 .skill-card {
@@ -343,6 +395,7 @@ img {
     border-radius: 10px;
     transition: var(--transition);
     border: 1px solid #eee;
+    height: 100%;
 }
 
 .skill-card:hover {
@@ -351,19 +404,21 @@ img {
 }
 
 .skill-card h5 {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 500;
 }
 
-/* Works Section */
+/* =============================================
+   WORKS SECTION - Mobile First
+   ============================================= */
 .section-works {
-    padding: 6rem 0;
+    padding: 4rem 0;
 }
 
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
 }
 
 .work-item {
@@ -382,7 +437,7 @@ img {
 .work-image {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    aspect-ratio: 4 / 3;
 }
 
 .work-image img {
@@ -394,10 +449,7 @@ img {
 
 .work-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(13, 110, 253, 0.9);
     display: flex;
     align-items: center;
@@ -415,16 +467,16 @@ img {
 }
 
 .work-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
 }
 
 .work-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
 }
 
 .work-category {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -432,52 +484,63 @@ img {
 }
 
 .work-desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-gray);
     margin: 0;
 }
 
-/* Stats Section */
+/* =============================================
+   STATS SECTION - Mobile First
+   ============================================= */
 .section-stats {
     background: var(--color-dark);
     color: var(--color-white);
-    padding: 5rem 0;
+    padding: 2.5rem 0;
 }
 
 .stat-item {
-    padding: 1rem;
+    padding: 1.25rem 0.5rem;
+    text-align: center;
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--color-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     opacity: 0.8;
 }
 
-/* Contact Section */
+/* =============================================
+   CONTACT SECTION - Mobile First
+   ============================================= */
 .section-contact {
-    padding: 6rem 0;
+    padding: 4rem 0;
 }
 
 .contact-content p {
     color: var(--color-gray);
 }
 
-.contact-info i {
-    color: var(--color-primary);
+/* Responsive icon size for contact */
+.contact-icon {
+    font-size: 2rem;
 }
 
 .contact-info h5 {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.contact-info p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
 }
 
 .contact-info a {
@@ -489,34 +552,38 @@ img {
 }
 
 .contact-form .form-control {
-    padding: 0.8rem 1rem;
+    padding: 0.75rem 1rem;
     border: 2px solid #e9ecef;
     border-radius: 8px;
+    font-size: 0.95rem;
     transition: var(--transition);
 }
 
 .contact-form .form-control:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
 }
 
 .contact-form button {
-    padding: 1rem 3rem;
+    padding: 0.875rem 2.5rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
-/* Footer */
+/* =============================================
+   FOOTER - Mobile First
+   ============================================= */
 .footer {
     background: var(--color-dark);
     color: var(--color-white);
-    padding: 2rem 0;
+    padding: 1.5rem 0;
 }
 
 .footer p {
     opacity: 0.8;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .social-links a {
@@ -531,20 +598,22 @@ img {
     color: var(--color-primary);
 }
 
-/* Back to Top */
+/* =============================================
+   BACK TO TOP - Mobile First
+   ============================================= */
 .back-to-top {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 50px;
-    height: 50px;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
     background: var(--color-primary);
     color: var(--color-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
@@ -563,58 +632,244 @@ img {
     transform: translateY(-3px);
 }
 
-/* Responsive */
-@media (max-width: 991px) {
-    .hero-content {
-        text-align: center;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-social-vertical {
-        display: none;
+/* =============================================
+   TABLET (min-width: 768px)
+   ============================================= */
+@media (min-width: 768px) {
+    /* Header */
+    .s-header .navbar-collapse {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        margin-top: 0;
+        box-shadow: none;
     }
 
     .s-header .nav-link {
+        color: var(--color-white) !important;
+        padding: 0.5rem 1rem !important;
+    }
+
+    .s-header.scrolled .nav-link {
         color: var(--color-dark) !important;
-        padding: 1rem 0 !important;
+    }
+
+    .s-header.scrolled .nav-link:hover,
+    .s-header.scrolled .nav-link.active {
+        color: var(--color-primary) !important;
+    }
+
+    /* Hero */
+    .hero-content {
+        text-align: left;
+        padding: 8rem 0 6rem;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    .hero-buttons .btn {
+        width: auto;
+        max-width: none;
+    }
+
+    .hero-social {
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 0;
+    }
+
+    .social-link {
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+
+    /* Section Header */
+    .section-header {
+        text-align: left;
+        margin-bottom: 2.5rem;
     }
 
     .section-header h2 {
         font-size: 2rem;
     }
-}
 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2rem;
+    .section-header h2::before {
+        font-size: 5rem;
+        left: -6%;
+        top: -50%;
     }
 
-    .hero-buttons .btn {
-        display: block;
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto 1rem !important;
+    /* About */
+    .section-about {
+        padding: 5rem 0;
+    }
+
+    .about-image {
+        max-width: none;
+        margin: 0;
+    }
+
+    .about-text .lead {
+        font-size: 1.2rem;
+    }
+
+    /* Skills */
+    .section-skills {
+        padding: 5rem 0;
+    }
+
+    .skill-icon {
+        font-size: 2.5rem;
+    }
+
+    .skill-card h5 {
+        font-size: 0.85rem;
+    }
+
+    /* Works */
+    .section-works {
+        padding: 5rem 0;
     }
 
     .works-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .work-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    /* Stats */
+    .section-stats {
+        padding: 3rem 0;
     }
 
     .stat-number {
+        font-size: 2.25rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    /* Contact */
+    .section-contact {
+        padding: 5rem 0;
+    }
+
+    .contact-icon {
         font-size: 2.5rem;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
 }
 
-/* Mobile Menu */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background: var(--color-white);
-        padding: 1rem;
-        border-radius: 10px;
-        margin-top: 1rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* =============================================
+   DESKTOP (min-width: 992px)
+   ============================================= */
+@media (min-width: 992px) {
+    /* Hero */
+    .hero-greeting {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-buttons .btn {
+        padding: 1rem 2.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Section Header */
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+
+    /* About */
+    .section-about {
+        padding: 6rem 0;
+    }
+
+    /* Skills */
+    .section-skills {
+        padding: 6rem 0;
+    }
+
+    .skill-icon {
+        font-size: 3rem;
+    }
+
+    .skill-card h5 {
+        font-size: 0.9rem;
+    }
+
+    /* Works */
+    .section-works {
+        padding: 6rem 0;
+    }
+
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .work-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .work-content h3 {
+        font-size: 1.125rem;
+    }
+
+    /* Stats */
+    .stat-number {
+        font-size: 2.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+    }
+
+    /* Contact */
+    .section-contact {
+        padding: 6rem 0;
+    }
+
+    .contact-icon {
+        font-size: 3rem;
+    }
+}
+
+/* =============================================
+   LARGE DESKTOP (min-width: 1200px)
+   ============================================= */
+@media (min-width: 1200px) {
+    .hero-content {
+        padding: 10rem 0 8rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    .stat-number {
+        font-size: 3rem;
     }
 }

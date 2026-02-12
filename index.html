@@ -20,9 +20,7 @@
     <header class="s-header">
         <div class="container-fluid px-4 px-lg-5">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#top">
-                    <img src="logo-pirun.svg" alt="Logo" height="40">
-                </a>
+                <a class="navbar-brand fw-bold" href="#top">Pirun<span class="text-primary">.</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,20 +38,19 @@
 
     <!-- Hero Section -->
     <section id="intro" class="hero-section">
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="row align-items-center min-vh-100">
-                <div class="col-lg-8 hero-content">
+                <div class="col-12 hero-content">
                     <p class="hero-greeting">Hello</p>
                     <h1 class="hero-title">I'm Pirun Kongsaeng</h1>
                     <p class="hero-subtitle">WordPress Developer & Aspiring Full-Stack Developer</p>
                     <div class="hero-buttons">
-                        <a href="#about" class="btn btn-primary btn-lg me-3">More About Me</a>
+                        <a href="#about" class="btn btn-primary btn-lg">More About Me</a>
                         <a href="#contact" class="btn btn-outline-light btn-lg">Get In Touch</a>
                     </div>
-                </div>
 
-                <div class="col-lg-4 d-none d-lg-block">
-                    <div class="hero-social-vertical">
+                    <div class="hero-social">
                         <a href="#" class="social-link"><i class="bi bi-github"></i></a>
                         <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
                         <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
@@ -70,21 +67,20 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-about py-5">
+    <section id="about" class="section-about">
         <div class="container">
             <div class="section-header">
-                <h2>About Me.</h2>
+                <h2>About Me</h2>
             </div>
 
             <div class="row about-content">
-                <div class="col-lg-6 about-main">
+                <div class="col-12 col-md-5 about-main mb-4 mb-md-0">
                     <div class="about-image">
-                        <img src="https://via.placeholder.com/500x600/0d6efd/ffffff?text=Your+Photo"
-                            alt="Pirun Kongsaeng" class="img-fluid">
+                        <img src="IMG_4277.HEIC" alt="Pirun Kongsaeng" class="img-fluid">
                     </div>
                 </div>
 
-                <div class="col-lg-6 about-text">
+                <div class="col-12 col-md-7 about-text">
                     <p class="lead">Hi there! I'm Pirun Kongsaeng, a passionate WordPress Developer who builds websites
                         that are fast, user-friendly, and SEO-optimized.</p>
                     <p>My journey started a bit differently—I used to be an aircraft mechanic! That experience taught me
@@ -95,15 +91,14 @@
                         web applications.</p>
 
                     <div class="about-info row">
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <h5>Experience</h5>
                             <ul class="list-unstyled">
                                 <li>WordPress Developer</li>
-                                <li>Freelance Web Developer</li>
                                 <li>Frontend Developer</li>
                             </ul>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <h5>Skills</h5>
                             <ul class="list-unstyled">
                                 <li>WordPress & WooCommerce</li>
@@ -123,48 +118,48 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section-skills py-5 bg-light">
+    <section class="section-skills bg-light">
         <div class="container">
             <div class="section-header text-center">
                 <h2>Skills & Technologies</h2>
                 <p class="text-muted">Tools and technologies I work with</p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card text-center p-4">
-                        <i class="bi bi-wordpress display-4 text-primary"></i>
-                        <h5 class="mt-3">WordPress</h5>
+            <div class="row g-3 g-md-4">
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-wordpress skill-icon text-primary"></i>
+                        <h5 class="mt-2 mt-md-3">WordPress</h5>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card text-center p-4">
-                        <i class="bi bi-cart display-4 text-success"></i>
-                        <h5 class="mt-3">WooCommerce</h5>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-cart skill-icon text-success"></i>
+                        <h5 class="mt-2 mt-md-3">WooCommerce</h5>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card text-center p-4">
-                        <i class="bi bi-filetype-html display-4 text-danger"></i>
-                        <h5 class="mt-3">HTML/CSS</h5>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-filetype-html skill-icon text-danger"></i>
+                        <h5 class="mt-2 mt-md-3">HTML/CSS</h5>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card text-center p-4">
-                        <i class="bi bi-filetype-js display-4 text-warning"></i>
-                        <h5 class="mt-3">JavaScript</h5>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-filetype-js skill-icon text-warning"></i>
+                        <h5 class="mt-2 mt-md-3">JavaScript</h5>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card text-center p-4">
-                        <i class="bi bi-git display-4 text-dark"></i>
-                        <h5 class="mt-3">Git</h5>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-git skill-icon text-dark"></i>
+                        <h5 class="mt-2 mt-md-3">Git</h5>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card text-center p-4">
-                        <i class="bi bi-hdd-network display-4 text-info"></i>
-                        <h5 class="mt-3">REST API</h5>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-hdd-network skill-icon text-info"></i>
+                        <h5 class="mt-2 mt-md-3">REST API</h5>
                     </div>
                 </div>
             </div>
@@ -172,10 +167,10 @@
     </section>
 
     <!-- Works Section -->
-    <section id="works" class="section-works py-5">
+    <section id="works" class="section-works">
         <div class="container">
             <div class="section-header">
-                <h2>Selected Works.</h2>
+                <h2>Selected Works</h2>
             </div>
 
             <div class="works-grid">
@@ -243,22 +238,22 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="section-stats py-5">
+    <section class="section-stats">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-6 col-md-3 stat-item">
+            <div class="row g-0">
+                <div class="col-6 col-lg-3 stat-item">
                     <div class="stat-number" data-count="80">0</div>
                     <div class="stat-label">Happy Clients</div>
                 </div>
-                <div class="col-6 col-md-3 stat-item">
+                <div class="col-6 col-lg-3 stat-item">
                     <div class="stat-number" data-count="120">0</div>
                     <div class="stat-label">Projects Done</div>
                 </div>
-                <div class="col-6 col-md-3 stat-item">
+                <div class="col-6 col-lg-3 stat-item">
                     <div class="stat-number" data-count="50">0</div>
                     <div class="stat-label">Websites Built</div>
                 </div>
-                <div class="col-6 col-md-3 stat-item">
+                <div class="col-6 col-lg-3 stat-item">
                     <div class="stat-number" data-count="5">0</div>
                     <div class="stat-label">Years Experience</div>
                 </div>
@@ -267,33 +262,33 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-contact py-5 bg-light">
+    <section id="contact" class="section-contact bg-light">
         <div class="container">
             <div class="section-header">
-                <h2>Get In Touch.</h2>
+                <h2>Get In Touch</h2>
             </div>
 
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <div class="contact-content text-center mb-5">
+                    <div class="contact-content text-center mb-4 mb-md-5">
                         <p class="lead">Have a project in mind? Let's discuss how I can help you build something
                             amazing.</p>
                     </div>
 
-                    <div class="row contact-info mb-5">
-                        <div class="col-md-4 text-center">
-                            <i class="bi bi-envelope display-4 text-primary"></i>
-                            <h5 class="mt-3">Email</h5>
+                    <div class="row contact-info mb-4 mb-md-5">
+                        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+                            <i class="bi bi-envelope contact-icon text-primary"></i>
+                            <h5 class="mt-2">Email</h5>
                             <p><a href="mailto:hello@pirun.dev">hello@pirun.dev</a></p>
                         </div>
-                        <div class="col-md-4 text-center">
-                            <i class="bi bi-telephone display-4 text-primary"></i>
-                            <h5 class="mt-3">Phone</h5>
+                        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+                            <i class="bi bi-telephone contact-icon text-primary"></i>
+                            <h5 class="mt-2">Phone</h5>
                             <p><a href="tel:+66123456789">+66 123 456 789</a></p>
                         </div>
-                        <div class="col-md-4 text-center">
-                            <i class="bi bi-geo-alt display-4 text-primary"></i>
-                            <h5 class="mt-3">Location</h5>
+                        <div class="col-12 col-md-4 text-center">
+                            <i class="bi bi-geo-alt contact-icon text-primary"></i>
+                            <h5 class="mt-2">Location</h5>
                             <p>Bangkok, Thailand</p>
                         </div>
                     </div>
@@ -323,13 +318,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-4">
+    <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
+                <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
                     <p class="mb-0">&copy; 2024 Pirun Kongsaeng. All rights reserved.</p>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
+                <div class="col-12 col-md-6 text-center text-md-end">
                     <div class="social-links">
                         <a href="#" class="me-3"><i class="bi bi-github"></i></a>
                         <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
