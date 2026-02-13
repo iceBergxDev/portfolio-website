@@ -2,42 +2,37 @@
 (function() {
     'use strict';
 
-    // Elements
     const header = document.querySelector('.s-header');
-    const backToTop = document.getElementById('backToTop');
-    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+    const heroSection = document.querySelector('.hero-section');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const sections = document.querySelectorAll('section[id]');
 
-    // Header scroll effect
+    // Header sticky on scroll
     function handleHeaderScroll() {
-        if (window.scrollY > 100) {
+        const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+        const scrollY = window.scrollY;
+
+        if (scrollY > heroHeight) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
     }
 
-    // Back to top button
-    function handleBackToTop() {
-        if (window.scrollY > 500) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-    }
-
-    // Smooth scroll
+    // Smooth scroll for anchor links
     function smoothScroll(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
+        const href = this.getAttribute('href');
+        if (!href || href.charAt(0) !== '#' || href === '#0') return;
 
-        if (targetSection) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+
+        if (target) {
             const headerHeight = header.offsetHeight;
-            const targetPosition = targetSection.offsetTop - headerHeight + 20;
+            const targetPos = target.offsetTop - headerHeight;
 
             window.scrollTo({
-                top: targetPosition,
+                top: targetPos,
                 behavior: 'smooth'
             });
 
@@ -50,7 +45,7 @@
         }
     }
 
-    // Active nav link
+    // Active nav link highlight
     function updateActiveNav() {
         const scrollPos = window.scrollY + 200;
 
@@ -72,9 +67,8 @@
 
     // Navbar hide/show in hero section
     function toggleNavbar() {
-        const heroSection = document.querySelector('.hero-section');
         const currentScrollY = window.scrollY;
-        const heroHeight = heroSection.offsetHeight;
+        const heroHeight = heroSection ? heroSection.offsetHeight : 0;
         const navbarHeight = header.offsetHeight;
 
         if (currentScrollY === 0) {
@@ -86,6 +80,18 @@
         } else {
             header.style.transform = 'translateY(0)';
             header.style.opacity = '1';
+        }
+    }
+
+    // Back to top button
+    function handleBackToTop() {
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         }
     }
 
@@ -147,18 +153,30 @@
         }
     }
 
+    // Loading screen
+    function hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 500);
+        }
+    }
+
     // Initialize
     function init() {
+        // Hide loading screen when page is fully loaded
+        window.addEventListener('load', hideLoadingScreen);
+
         window.addEventListener('scroll', onScroll, { passive: true });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', smoothScroll);
         });
 
         // Initial calls
         handleHeaderScroll();
-        handleBackToTop();
         updateActiveNav();
         toggleNavbar();
         animateStats();

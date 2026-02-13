@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pirun Kongsaeng | WordPress Developer</title>
+    <title>Pirun Kongsaeng | Web Developer (WordPress & Frontend)</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,6 +22,19 @@
 </head>
 
 <body id="top">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">P</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="s-header">
         <div class="container-fluid px-4 px-lg-5">
@@ -38,13 +57,14 @@
 
     <!-- Hero Section -->
     <section id="intro" class="hero-section">
+        <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="container-fluid">
                 <div class="row align-items-center min-vh-100">
                     <div class="col-12 col-lg-9 hero-content">
                         <p class="hero-greeting">Hello</p>
                         <h1 class="hero-title">I'm Pirun Kongsaeng</h1>
-                        <p class="hero-subtitle">WordPress Developer & Aspiring Full-Stack Developer</p>
+                        <p class="hero-subtitle">Web Developer (WordPress & Frontend)</p>
                         <div class="hero-buttons">
                             <a href="#about" class="btn btn-primary btn-lg">More About Me</a>
                             <a href="#contact" class="btn btn-outline-light btn-lg">Get In Touch</a>
@@ -52,10 +72,8 @@
                     </div>
                     <div class="col-12 col-lg-3" style="position: relative; z-index: 1;">
                         <div class="hero-social">
-                            <a href="#" class="social-link"><i class="bi bi-github"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
+                            <a href="https://github.com/pirunkongsaeng" class="social-link" target="_blank"><i class="bi bi-github"></i></a>
+                            <a href="mailto:pirun.ks@gmail.com" class="social-link"><i class="bi bi-envelope"></i></a>
                         </div>
                     </div>
                     <div class="col-12">
@@ -84,29 +102,29 @@
                 </div>
 
                 <div class="col-12 col-md-7 about-text">
-                    <p class="lead">Hi there! I'm Pirun Kongsaeng, a passionate WordPress Developer who builds websites
-                        that are fast, user-friendly, and SEO-optimized.</p>
+                    <p class="lead">Web Developer with 5+ years building fast, SEO-optimized websites for clients in Thailand, Australia, and the UK. I specialize in WordPress and frontend development—from design to e-commerce and analytics setup.</p>
                     <p>My journey started a bit differently—I used to be an aircraft mechanic! That experience taught me
                         to be incredibly detail-oriented and precise. Since transitioning into the web world, I've loved
                         diving into code and system integrations, whether it's building E-commerce stores with
-                        WooCommerce or handling complex APIs.</p>
-                    <p>Currently, I'm leveling up my skills to become a Full-Stack Developer to build even more powerful
-                        web applications.</p>
+                        WooCommerce or handling complex APIs. I use AI tools to speed up development while maintaining quality.</p>
+                    <p>Currently expanding into full-stack development with React and Next.js.</p>
 
                     <div class="about-info row">
                         <div class="col-6">
                             <h5>Experience</h5>
                             <ul class="list-unstyled">
-                                <li>WordPress Developer</li>
-                                <li>Frontend Developer</li>
+                                <li>Web Developer (WordPress & Frontend)</li>
+                                <li>UX/UI Designer</li>
+                                <li>Web Master / IT Support</li>
                             </ul>
                         </div>
                         <div class="col-6">
                             <h5>Skills</h5>
                             <ul class="list-unstyled">
                                 <li>WordPress & WooCommerce</li>
-                                <li>PHP & JavaScript</li>
-                                <li>HTML5 & CSS3</li>
+                                <li>HTML5, CSS3, JavaScript, PHP</li>
+                                <li>Tailwind CSS & Bootstrap</li>
+                                <li>SEO & Google Analytics</li>
                                 <li>REST API Integration</li>
                             </ul>
                         </div>
@@ -155,14 +173,50 @@
                 </div>
                 <div class="col-4 col-md-4 col-lg-2">
                     <div class="skill-card text-center p-3 p-md-4">
-                        <i class="bi bi-git skill-icon text-dark"></i>
-                        <h5 class="mt-2 mt-md-3">Git</h5>
+                        <i class="bi bi-filetype-php skill-icon text-purple"></i>
+                        <h5 class="mt-2 mt-md-3">PHP</h5>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-bootstrap skill-icon text-purple"></i>
+                        <h5 class="mt-2 mt-md-3">Tailwind/Bootstrap</h5>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-search skill-icon text-success"></i>
+                        <h5 class="mt-2 mt-md-3">SEO</h5>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-bar-chart skill-icon text-warning"></i>
+                        <h5 class="mt-2 mt-md-3">GTM / GA4</h5>
                     </div>
                 </div>
                 <div class="col-4 col-md-4 col-lg-2">
                     <div class="skill-card text-center p-3 p-md-4">
                         <i class="bi bi-hdd-network skill-icon text-info"></i>
                         <h5 class="mt-2 mt-md-3">REST API</h5>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-git skill-icon text-dark"></i>
+                        <h5 class="mt-2 mt-md-3">Git</h5>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-cloud skill-icon text-info"></i>
+                        <h5 class="mt-2 mt-md-3">Cloudways</h5>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-2">
+                    <div class="skill-card text-center p-3 p-md-4">
+                        <i class="bi bi-robot skill-icon text-primary"></i>
+                        <h5 class="mt-2 mt-md-3">AI Tools</h5>
                     </div>
                 </div>
             </div>
@@ -180,60 +234,60 @@
                 <!-- Work 1 -->
                 <div class="work-item">
                     <div class="work-image">
-                        <img src="https://via.placeholder.com/600x400/333/fff?text=E-Commerce" alt="Project">
+                        <img src="https://via.placeholder.com/600x400/333/fff?text=WooCommerce+%2B+Zort+API" alt="WooCommerce Zort API Integration">
                         <div class="work-overlay">
                             <a href="#" class="btn btn-light">View Project</a>
                         </div>
                     </div>
                     <div class="work-content">
-                        <h3>E-Commerce Website</h3>
-                        <p class="work-category">WooCommerce Development</p>
-                        <p class="work-desc">A fully functional WooCommerce store with custom payment integration.</p>
+                        <h3>WooCommerce + Zort API Integration</h3>
+                        <p class="work-category">E-Commerce / API Integration</p>
+                        <p class="work-desc">WooCommerce stores connected to Zort API for automatic inventory updates, reducing manual order processing.</p>
                     </div>
                 </div>
 
                 <!-- Work 2 -->
                 <div class="work-item">
                     <div class="work-image">
-                        <img src="https://via.placeholder.com/600x400/444/fff?text=Portfolio" alt="Project">
+                        <img src="https://via.placeholder.com/600x400/444/fff?text=Multilingual+Sites" alt="Multilingual E-Commerce">
                         <div class="work-overlay">
                             <a href="#" class="btn btn-light">View Project</a>
                         </div>
                     </div>
                     <div class="work-content">
-                        <h3>Portfolio Website</h3>
-                        <p class="work-category">WordPress Theme</p>
-                        <p class="work-desc">Custom WordPress theme with advanced animations and responsive design.</p>
+                        <h3>Multilingual E-Commerce Sites</h3>
+                        <p class="work-category">WordPress / WPML / Polylang</p>
+                        <p class="work-desc">Multilingual e-commerce sites for international clients using WPML and Polylang with optimized performance.</p>
                     </div>
                 </div>
 
                 <!-- Work 3 -->
                 <div class="work-item">
                     <div class="work-image">
-                        <img src="https://via.placeholder.com/600x400/555/fff?text=API" alt="Project">
+                        <img src="https://via.placeholder.com/600x400/555/fff?text=Analytics+%26+SEO" alt="Analytics & SEO Setup">
                         <div class="work-overlay">
                             <a href="#" class="btn btn-light">View Project</a>
                         </div>
                     </div>
                     <div class="work-content">
-                        <h3>API Integration</h3>
-                        <p class="work-category">REST API</p>
-                        <p class="work-desc">Custom REST API integration with third-party CRM systems.</p>
+                        <h3>Analytics & SEO Setup</h3>
+                        <p class="work-category">GTM / GA4 / Technical SEO</p>
+                        <p class="work-desc">Unified analytics tracking (GTM, GA4, Google Ads) and technical SEO setup across multiple client sites.</p>
                     </div>
                 </div>
 
                 <!-- Work 4 -->
                 <div class="work-item">
                     <div class="work-image">
-                        <img src="https://via.placeholder.com/600x400/666/fff?text=Corporate" alt="Project">
+                        <img src="https://via.placeholder.com/600x400/666/fff?text=Landing+Pages" alt="High-Converting Landing Pages">
                         <div class="work-overlay">
                             <a href="#" class="btn btn-light">View Project</a>
                         </div>
                     </div>
                     <div class="work-content">
-                        <h3>Corporate Website</h3>
-                        <p class="work-category">Full Stack</p>
-                        <p class="work-desc">Corporate website with multilingual support and custom CMS.</p>
+                        <h3>High-Converting Landing Pages</h3>
+                        <p class="work-category">WordPress / Elementor Pro</p>
+                        <p class="work-desc">Landing pages designed to convert visitors into customers with Brevo email marketing integration for automated lead follow-up.</p>
                     </div>
                 </div>
             </div>
@@ -245,16 +299,16 @@
         <div class="container">
             <div class="row g-0">
                 <div class="col-6 col-lg-3 stat-item">
-                    <div class="stat-number" data-count="80">0</div>
-                    <div class="stat-label">Happy Clients</div>
+                    <div class="stat-number" data-count="4">0</div>
+                    <div class="stat-label">Companies Worked</div>
                 </div>
                 <div class="col-6 col-lg-3 stat-item">
-                    <div class="stat-number" data-count="120">0</div>
-                    <div class="stat-label">Projects Done</div>
+                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-label">Websites Launched</div>
                 </div>
                 <div class="col-6 col-lg-3 stat-item">
-                    <div class="stat-number" data-count="50">0</div>
-                    <div class="stat-label">Websites Built</div>
+                    <div class="stat-number" data-count="8">0</div>
+                    <div class="stat-label">Sites Redesigned</div>
                 </div>
                 <div class="col-6 col-lg-3 stat-item">
                     <div class="stat-number" data-count="5">0</div>
@@ -282,17 +336,17 @@
                         <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
                             <i class="bi bi-envelope contact-icon text-primary"></i>
                             <h5 class="mt-2">Email</h5>
-                            <p><a href="mailto:hello@pirun.dev">hello@pirun.dev</a></p>
+                            <p><a href="mailto:pirun.ks@gmail.com">pirun.ks@gmail.com</a></p>
                         </div>
                         <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
                             <i class="bi bi-telephone contact-icon text-primary"></i>
                             <h5 class="mt-2">Phone</h5>
-                            <p><a href="tel:+66123456789">+66 123 456 789</a></p>
+                            <p><a href="tel:+66849962966">(+66) 84-996-2966</a></p>
                         </div>
                         <div class="col-12 col-md-4 text-center">
                             <i class="bi bi-geo-alt contact-icon text-primary"></i>
                             <h5 class="mt-2">Location</h5>
-                            <p>Bangkok, Thailand</p>
+                            <p>Bang Phlat, Bangkok, Thailand</p>
                         </div>
                     </div>
 
@@ -323,16 +377,14 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-bottom">
                 <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="mb-0">&copy; 2024 Pirun Kongsaeng. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2026 Pirun Kongsaeng. All rights reserved.</p>
                 </div>
                 <div class="col-12 col-md-6 text-center text-md-end">
                     <div class="social-links">
-                        <a href="#" class="me-3"><i class="bi bi-github"></i></a>
-                        <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-envelope"></i></a>
+                        <a href="https://github.com/pirunkongsaeng" class="me-3" target="_blank"><i class="bi bi-github"></i></a>
+                        <a href="mailto:pirun.ks@gmail.com"><i class="bi bi-envelope"></i></a>
                     </div>
                 </div>
             </div>
