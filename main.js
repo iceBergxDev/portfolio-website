@@ -102,7 +102,7 @@
         statNumbers.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-count'));
             const duration = 2000;
-            const increment = target / (duration / 16);
+            const increment = target / (duration / 18);
             let current = 0;
 
             const updateCount = () => {
