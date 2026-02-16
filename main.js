@@ -3,7 +3,7 @@
     'use strict';
 
     const header = document.querySelector('.s-header');
-    const heroSection = document.querySelector('.hero-section');
+    const heroSection = document.querySelector('.s-intro');
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const sections = document.querySelectorAll('section[id]');
 
