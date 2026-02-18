@@ -260,7 +260,7 @@ img {
 }
 
 .s-header.scrolled .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 1);
 }
 
 .s-header.scrolled .navbar-toggler-icon {
@@ -389,18 +389,12 @@ img {
     pointer-events: none;
 }
 
-/* Social links - hidden on mobile */
+/* Social links - absolute positioned on desktop, below buttons on mobile */
 .s-intro__social {
     display: none;
     list-style: none;
     margin: 0;
     padding: 0;
-    position: absolute;
-    z-index: 2;
-    right: 2rem;
-    bottom: 16rem;
-    width: 40px;
-    align-items: center;
 }
 
 .s-intro__social li {
@@ -414,7 +408,7 @@ img {
     width: 40px;
     height: 40px;
     color: var(--color-white);
-    opacity: 0.5;
+    opacity: 1;
     transition: var(--transition);
     font-size: 1.1rem;
 }
@@ -447,13 +441,13 @@ img {
     letter-spacing: 0.2em;
     writing-mode: vertical-rl;
     margin-bottom: 1rem;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .s-intro__scroll-down .scroll-icon {
     width: 40px;
     height: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -478,9 +472,9 @@ img {
     display: block;
     width: 1px;
     height: 4rem;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 1);
     position: absolute;
-    top: calc(-3rem - 1rem);
+    top: calc(-4rem - 1rem);
     left: 50%;
 }
 
@@ -526,6 +520,20 @@ img {
     .s-intro__buttons {
         margin-top: 1.5rem;
         gap: 0.5rem;
+    }
+
+    .s-intro__social {
+        display: flex !important;
+        position: static !important;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1.5rem;
+        gap: 1rem;
+        width: auto;
+    }
+
+    .s-intro__social li {
+        margin-bottom: 0;
     }
 
     .s-intro__buttons .btn {
@@ -1049,6 +1057,11 @@ img {
 
     .s-intro__social {
         display: block;
+        position: absolute;
+        right: 2rem;
+        bottom: 16rem;
+        width: 40px;
+        z-index: 2;
     }
 
     /* Section Header */
