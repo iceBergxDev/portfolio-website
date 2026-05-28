@@ -191,3 +191,16 @@
     }
 
 })();
+
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(contactForm);
+        const res = await fetch(contactForm.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (res.ok) {
+            contactForm.reset();
+            document.getElementById('form-success').classList.remove('d-none');
+        }
+    });
+}
