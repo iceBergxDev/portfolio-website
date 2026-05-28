@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foley Pre-Start — Digital Inspection System | Pirun Kongsaeng</title>
+    <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+    <header class="s-header">
+        <div class="container-fluid px-4 px-lg-5">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand fw-bold" href="index.html">Pirun<span class="text-primary">.</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html#intro">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="index.html#works">Works</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="cs-hero">
+        <div class="container">
+            <a href="index.html#works" class="cs-back"><i class="bi bi-arrow-left"></i> Back to Works</a>
+            <h1>Foley Pre-Start —<br>Digital Fleet Inspection System</h1>
+            <div class="cs-meta">
+                <span class="cs-tag">WordPress Plugin</span>
+                <span class="cs-tag">PHP</span>
+                <span class="cs-tag">Logistics</span>
+                <span class="cs-tag">2024–2025</span>
+            </div>
+        </div>
+        <div class="container">
+            <img src="image/projects/foley-screenshot.png" alt="Foley Logistics Website" class="cs-hero-img">
+        </div>
+    </section>
+
+    <div class="cs-body">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <div class="cs-section">
+                        <h2>Overview</h2>
+                        <p>Foley Logistics is a crane truck hire and heavy freight transport company based in Gold
+                            Coast, Australia. They operate a large fleet of vehicles across multiple depots and need
+                            strict pre-start safety checks before every shift.</p>
+                        <p>I built the <strong>Foley Pre-Start</strong> plugin — a fully custom WordPress plugin that
+                            digitises the entire vehicle inspection workflow, from driver login to manager sign-off.</p>
+                    </div>
+
+                    <div class="cs-section">
+                        <h2>The Challenge</h2>
+                        <p>Pre-start inspections were done on paper. This created several problems: forms were
+                            frequently lost or incomplete, fault reports could sit unread for days, and there was no
+                            reliable audit trail for compliance purposes.</p>
+                        <p>The client needed a solution that worked on mobile devices at depot sites, required minimal
+                            training for drivers, and gave managers real-time visibility over the fleet's condition.</p>
+                    </div>
+
+                    <div class="cs-section">
+                        <h2>The Solution</h2>
+                        <p>I built a custom WordPress plugin (v2.3.2) that handles the complete inspection lifecycle:</p>
+                        <ul>
+                            <li><strong>Driver Portal</strong> — Drivers log in via a branded portal and complete
+                                digital checklists tailored to their assigned vehicle type (rigid, semi, crane).</li>
+                            <li><strong>Digital Checklists</strong> — Each inspection covers brake checks, lights,
+                                fluid levels, tyres, and crane-specific items. Drivers can attach photos to fault
+                                entries.</li>
+                            <li><strong>Fault Reporting</strong> — Faults are flagged in real time and routed to the
+                                relevant manager dashboard, with severity classification.</li>
+                            <li><strong>Digital Signatures</strong> — Both driver and manager sign off digitally,
+                                creating a timestamped audit record.</li>
+                            <li><strong>Manager Dashboard</strong> — Fleet overview with live fault status, inspection
+                                history per vehicle, and exportable compliance reports.</li>
+                            <li><strong>Action Scheduler</strong> — Background jobs handle notification dispatch,
+                                reminder emails, and automated escalation for unresolved faults.</li>
+                        </ul>
+
+                        <div class="cs-highlight-box">
+                            <p>The plugin is built on WordPress with no third-party SaaS dependency — keeping all
+                                inspection data on the client's own server for compliance and privacy.</p>
+                        </div>
+                    </div>
+
+                    <div class="cs-section">
+                        <h2>Screenshots</h2>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="cs-screenshot">
+                                    <img src="image/projects/foley-screenshot.png" alt="Foley Logistics Website">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cs-screenshot">
+                                    <img src="image/projects/foley-fleet.jpg" alt="Foley Fleet Trucks">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cs-section">
+                        <h2>Results</h2>
+                        <p>Paper pre-start checklists were eliminated entirely across the Foley fleet.</p>
+                        <ul>
+                            <li>Fault reporting time reduced from 24–48 hrs (paper) to under 5 minutes</li>
+                            <li>Full digital audit trail — no lost forms, full compliance coverage</li>
+                            <li>Active in production at v2.3.2 across the entire fleet</li>
+                            <li>Mobile-first design required zero driver training sessions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="cs-sidebar">
+                        <div class="cs-detail">
+                            <h5>Client</h5>
+                            <p>Foley Logistics<br><small>Gold Coast, Australia</small></p>
+                        </div>
+                        <div class="cs-detail">
+                            <h5>My Role</h5>
+                            <p>WordPress Plugin Developer</p>
+                        </div>
+                        <div class="cs-detail">
+                            <h5>Tech Stack</h5>
+                            <ul>
+                                <li>PHP 8</li>
+                                <li>WordPress</li>
+                                <li>Action Scheduler</li>
+                                <li>Elementor Pro</li>
+                                <li>MySQL</li>
+                                <li>JavaScript (Vanilla)</li>
+                            </ul>
+                        </div>
+                        <div class="cs-detail">
+                            <h5>Plugin Version</h5>
+                            <p>v2.3.2 (production)</p>
+                        </div>
+                        <div class="cs-detail">
+                            <h5>Year</h5>
+                            <p>2024–2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cs-nav">
+        <div class="container">
+            <div class="cs-nav-links">
+                <a href="case-study-gatac.html" class="cs-nav-link">
+                    <span>Previous Project</span>
+                    <strong><i class="bi bi-arrow-left"></i> GATAC</strong>
+                </a>
+                <a href="case-study-ajflooring.html" class="cs-nav-link cs-nav-link--next">
+                    <span>Next Project</span>
+                    <strong>AJ Flooring <i class="bi bi-arrow-right"></i></strong>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-bottom">
+                <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2026 Pirun Kongsaeng. All rights reserved.</p>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <div class="social-links">
+                        <a href="https://github.com/pirunkongsaeng" class="me-3" target="_blank"><i class="bi bi-github"></i></a>
+                        <a href="mailto:pirun.ks@gmail.com"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
