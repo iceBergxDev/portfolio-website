@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grind @ The Rise — Specialty Café Website | Pirun Kongsaeng</title>
+    <title>Birdhouse Media — Video Production Website | Pirun Kongsaeng</title>
     <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,7 @@
         </div>
     </header>
 
+    <!-- Dark header -->
     <div class="cs2-header">
         <div class="cs2-header__inner">
             <a href="index.html#works" class="cs2-header__back">
@@ -41,17 +42,17 @@
             <div class="cs2-header__tags">
                 <span class="cs2-header__tag">WordPress</span>
                 <span class="cs2-header__tag">Elementor Pro</span>
-                <span class="cs2-header__tag">Hospitality</span>
+                <span class="cs2-header__tag">Video Production</span>
             </div>
-            <h1 class="cs2-header__title">Grind @ The Rise —<br>Specialty Café Website</h1>
+            <h1 class="cs2-header__title">Birdhouse Media —<br>Video Production Agency Website</h1>
             <div class="cs2-header__meta">
                 <div class="cs2-header__meta-item">
                     <span class="cs2-header__meta-label">Client</span>
-                    <span class="cs2-header__meta-value">Grind @ The Rise</span>
+                    <span class="cs2-header__meta-value">Birdhouse Media</span>
                 </div>
                 <div class="cs2-header__meta-item">
                     <span class="cs2-header__meta-label">Role</span>
-                    <span class="cs2-header__meta-value">WordPress Developer &amp; Designer</span>
+                    <span class="cs2-header__meta-value">WordPress Developer</span>
                 </div>
                 <div class="cs2-header__meta-item">
                     <span class="cs2-header__meta-label">Year</span>
@@ -62,93 +63,105 @@
                     <div class="cs2-stack">
                         <span class="cs2-stack__pill">WordPress</span>
                         <span class="cs2-stack__pill">Elementor Pro</span>
-                        <span class="cs2-stack__pill">Hello Elementor</span>
-                        <span class="cs2-stack__pill">SiteGround CDN</span>
+                        <span class="cs2-stack__pill">Stotage Theme</span>
+                        <span class="cs2-stack__pill">LiteSpeed Cache</span>
+                        <span class="cs2-stack__pill">SiteGround</span>
+                        <span class="cs2-stack__pill">WPForms</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Feature image -->
     <div class="cs2-cover">
-        <img src="image/projects/grind-espresso.jpg" alt="Grind @ The Rise Coffee">
+        <img src="image/projects/birdhouse-hero.jpg" alt="Birdhouse Media Website Hero">
     </div>
 
+    <!-- Body -->
     <div class="cs2-body">
         <div class="cs2-content">
+
             <div class="cs2-section">
                 <h2>Overview</h2>
-                <p>Grind @ The Rise is a specialty café known for freshly brewed coffee, made-to-order food, and a welcoming community vibe. They needed a brand website that matched their premium identity and gave customers everything they needed — menu, location, catering, and their loyalty programme.</p>
+                <p>Birdhouse Media is a Perth-based video production agency specialising in corporate video, TVCs, events, real estate, and music content. Their client portfolio spans major brands including Alcoa, APPEA, Mercedes-Benz, Motorola, Vicinity Centres, and Bodhi.</p>
+                <p>I built their full website from the ground up — transforming a premium ThemeForest finance theme (Stotage) into a bold, media-forward agency site with custom CPTs, an Elementor-powered theme builder, and a SiteGround-native performance stack.</p>
             </div>
 
             <div class="cs2-section">
                 <h2>The Challenge</h2>
-                <p>The café had a strong local following and bold visual brand identity, but no website to represent it online. They needed something as premium and vibrant as the café itself — large typography, rich food photography, and clear information architecture for customers finding them online.</p>
+                <p>Birdhouse needed a website that could do several things at once: showcase their work as a filterable portfolio, present 8 distinct services clearly, introduce their team with personality, and convert visitors into enquiries — all while loading fast and looking premium.</p>
+                <p>The existing Stotage theme was built for finance and consulting — not a creative agency. Every visual component needed to be rebuilt to match Birdhouse's dark, cinematic brand identity.</p>
             </div>
 
             <div class="cs2-section">
                 <h2>The Solution</h2>
+                <p>I rebuilt the site architecture around three custom post types and a full Elementor theme builder setup:</p>
                 <ul>
-                    <li><strong>Bold Visual Design</strong> — Large display typography and full-bleed food photography that mirrors the café's physical brand energy.</li>
-                    <li><strong>Full Menu Pages</strong> — Separate food and drinks pages with imagery for all items including specials.</li>
-                    <li><strong>Catering Page</strong> — Dedicated enquiry page for corporate and event bookings.</li>
-                    <li><strong>Loyalty Programme</strong> — Page explaining the loyalty system and how customers can join.</li>
-                    <li><strong>Specials Integration</strong> — Easily updatable specials section — team posts seasonal items without developer help.</li>
-                    <li><strong>SiteGround CDN</strong> — Fast load times across all devices.</li>
+                    <li><strong>Portfolio CPT</strong> — Filterable project showcase with <code>portfolio-category</code> taxonomy. Visitors can filter by industry (Corporate, Events, Real Estate, Music, etc.).</li>
+                    <li><strong>Services CPT</strong> — 8 services (Filming, Drone, Editing, Animations, Photography, Script Writing, Directing, Voice Over) each with a dedicated page, rendered as a visual carousel on the homepage.</li>
+                    <li><strong>Team with Video Profiles</strong> — Each team member has an embedded self-introduction video on their card — a distinctive touch that sets the agency apart.</li>
+                    <li><strong>Production Workflow Section</strong> — A step-by-step carousel (Initial Meeting → Shoot Planning → Filming → Editing → Final Delivery) that sets client expectations before they enquire.</li>
+                    <li><strong>Live Google Reviews</strong> — Embedded via Widgets for Google Reviews plugin for social proof directly on-site.</li>
+                    <li><strong>Elementor Theme Builder</strong> — Header, footer, page titles, and mega menu all managed as <code>pxl-template</code> CPT entries with conditional display logic — no hardcoded layouts in PHP.</li>
                 </ul>
                 <div class="cs2-callout">
-                    <p>"Your daily ritual, elevated." — The hero headline captures the brand voice perfectly, setting the tone for the entire customer experience online.</p>
+                    <p>The theme builder approach means the client can update any layout element from within Elementor — no developer required for structural changes.</p>
                 </div>
             </div>
+
         </div>
     </div>
 
+    <!-- Stats banner -->
     <div class="cs2-stats">
         <div class="cs2-stats__inner">
             <div class="cs2-stat">
-                <span class="cs2-stat__number">↓</span>
-                <span class="cs2-stat__label">Reduced phone &amp; social enquiries — full menu online</span>
+                <span class="cs2-stat__number">8</span>
+                <span class="cs2-stat__label">Service pages — each with dedicated CPT entry and carousel card</span>
             </div>
             <div class="cs2-stat">
-                <span class="cs2-stat__number">✓</span>
-                <span class="cs2-stat__label">Corporate bookings captured via catering page</span>
+                <span class="cs2-stat__number">3</span>
+                <span class="cs2-stat__label">Custom Post Types — portfolio, service, team with category taxonomies</span>
             </div>
             <div class="cs2-stat">
-                <span class="cs2-stat__number">Self-serve</span>
-                <span class="cs2-stat__label">Team manages specials and menu updates independently</span>
+                <span class="cs2-stat__number">40+</span>
+                <span class="cs2-stat__label">Custom Elementor widgets in the Stotage theme ecosystem</span>
             </div>
             <div class="cs2-stat">
-                <span class="cs2-stat__number">Fast</span>
-                <span class="cs2-stat__label">SiteGround CDN load times on all devices</span>
+                <span class="cs2-stat__number">A+</span>
+                <span class="cs2-stat__label">Performance via LiteSpeed Cache + SiteGround Speed Optimizer</span>
             </div>
         </div>
     </div>
 
+    <!-- Screenshots -->
     <div class="cs2-screenshots">
         <div class="cs2-screenshots__inner">
             <h2>Screenshots</h2>
             <div class="cs2-screenshot">
-                <img src="image/projects/grind-screenshot.png" alt="Grind @ The Rise Homepage">
+                <img src="image/projects/birdhouse-services.jpg" alt="Birdhouse Media Services Section">
             </div>
             <div class="cs2-screenshot">
-                <img src="image/projects/grind-storefront.jpg" alt="Grind Storefront">
+                <img src="image/projects/birdhouse-team.jpg" alt="Birdhouse Media Team Section">
             </div>
             <div class="cs2-screenshot">
-                <img src="image/projects/grind-espresso.jpg" alt="Grind Coffee">
+                <img src="image/projects/birdhouse-workflow.jpg" alt="Birdhouse Production Workflow">
             </div>
         </div>
     </div>
 
+    <!-- Navigation -->
     <section class="cs-nav">
         <div class="container">
             <div class="cs-nav-links">
-                <a href="case-study-asl.html" class="cs-nav-link">
+                <a href="case-study-grind.html" class="cs-nav-link">
                     <span>Previous Project</span>
-                    <strong><i class="bi bi-arrow-left"></i> Australian Synthetic Lawns</strong>
+                    <strong><i class="bi bi-arrow-left"></i> Grind @ The Rise</strong>
                 </a>
-                <a href="case-study-birdhouse.html" class="cs-nav-link cs-nav-link--next">
-                    <span>Next Project</span>
-                    <strong>Birdhouse Media <i class="bi bi-arrow-right"></i></strong>
+                <a href="index.html#works" class="cs-nav-link cs-nav-link--next">
+                    <span>All Works</span>
+                    <strong>Back to Portfolio <i class="bi bi-grid-3x3-gap"></i></strong>
                 </a>
             </div>
         </div>
@@ -162,8 +175,9 @@
                 </div>
                 <div class="col-12 col-md-6 text-center text-md-end">
                     <div class="social-links">
-                        <a href="https://github.com/pirunkongsaeng" class="me-3" target="_blank"><i class="bi bi-github"></i></a>
-                        <a href="mailto:pirun.ks@gmail.com"><i class="bi bi-envelope"></i></a>
+                        <a href="https://github.com/pirunkongsaeng" class="me-3" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/pirun-kongsaeng-417b2a1b0/" class="me-3" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="mailto:pirun.ks@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
                     </div>
                 </div>
             </div>
