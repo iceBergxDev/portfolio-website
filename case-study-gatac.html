@@ -16,7 +16,7 @@
 
 <body id="top">
     <!-- Header -->
-    <header class="s-header">
+    <header class="s-header s-header--solid">
         <div class="container-fluid px-4 px-lg-5">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand fw-bold" href="index.html">Pirun<span class="text-primary">.</span></a>
@@ -35,132 +35,125 @@
         </div>
     </header>
 
-    <!-- Case Study Hero -->
-    <section class="cs-hero">
-        <div class="container">
-            <a href="index.html#works" class="cs-back"><i class="bi bi-arrow-left"></i> Back to Works</a>
-            <h1>GATAC — Shopify Theme &amp;<br>B2B Distributor Portal</h1>
-            <div class="cs-meta">
-                <span class="cs-tag">Shopify</span>
-                <span class="cs-tag">Next.js 14</span>
-                <span class="cs-tag">B2B E-Commerce</span>
-                <span class="cs-tag">2025–2026</span>
-            </div>
+    <!-- Hero -->
+    <section class="cs2-hero">
+        <div class="cs2-hero__bg">
+            <img src="image/projects/gatac-screenshot.png" alt="GATAC — Shopify Theme & B2B Portal">
+            <div class="cs2-hero__overlay"></div>
         </div>
-        <div class="container">
-            <img src="image/projects/gatac-app-screenshot.png" alt="GATAC Price List App — Shopify Admin"
-                class="cs-hero-img cs-hero-img--app" style="background:#f5f5f5;">
+        <a href="index.html#works" class="cs2-hero__back">
+            <i class="bi bi-arrow-left"></i> Back to Works
+        </a>
+        <div class="cs2-hero__content container">
+            <div class="cs2-hero__tags">
+                <span class="cs2-hero__tag">Shopify</span>
+                <span class="cs2-hero__tag">Next.js 14</span>
+                <span class="cs2-hero__tag">B2B E-Commerce</span>
+                <span class="cs2-hero__tag">2025–2026</span>
+            </div>
+            <h1 class="cs2-hero__title">GATAC — Shopify Theme<br>&amp; B2B Distributor Portal</h1>
         </div>
     </section>
 
-    <!-- Case Study Body -->
-    <div class="cs-body">
+    <!-- Project Meta Bar -->
+    <div class="cs2-meta-bar">
         <div class="container">
-            <div class="row g-5">
-                <!-- Main Content -->
-                <div class="col-lg-8">
-                    <div class="cs-section">
-                        <h2>Overview</h2>
-                        <p>GATAC is an automotive parts distributor operating across the USA, EU, and UK. They needed a
-                            custom B2B distribution portal embedded inside Shopify Admin — a system where authorised
-                            distributors could place orders using customer-specific pricing that doesn't exist on the
-                            public storefront.</p>
-                        <p>I built both the custom Shopify storefront theme and the embedded Next.js 14 portal from the
-                            ground up, integrating deeply with Shopify's Admin API and app proxy system.</p>
-                    </div>
-
-                    <div class="cs-section">
-                        <h2>The Challenge</h2>
-                        <p>Shopify's native B2B features didn't support GATAC's pricing model. Each distributor needed
-                            its own price list, and sales reps needed to create draft orders on behalf of customers
-                            using those custom prices — all without touching the public storefront.</p>
-                        <p>The portal also needed to live inside Shopify Admin as an embedded app, meaning authentication
-                            had to run through Shopify SSO (App Bridge) rather than a separate login system.</p>
-                    </div>
-
-                    <div class="cs-section">
-                        <h2>The Solution</h2>
-                        <p>I built a Next.js 14 App Router application embedded in Shopify Admin via app proxy. Key
-                            features include:</p>
-                        <ul>
-                            <li><strong>Custom Price Lists</strong> — Distributors are assigned price lists with
-                                customer-specific pricing overrides.</li>
-                            <li><strong>Draft Order Creation</strong> — Sales reps can select a customer, apply their
-                                price list, add products, and create Shopify draft orders in one flow.</li>
-                            <li><strong>Shopify SSO</strong> — Authentication runs entirely through Shopify App Bridge,
-                                eliminating the need for a separate login system.</li>
-                            <li><strong>Custom Storefront Theme</strong> — The Shopify theme was customised to support
-                                B2B redirect flows, keeping retail and wholesale traffic separated.</li>
-                            <li><strong>Multi-Region Support</strong> — The codebase is designed for USA (Phase 1) with
-                                EU and UK region support built in for future rollout.</li>
-                        </ul>
-
-                        <div class="cs-highlight-box">
-                            <p>The portal is built with Polaris (Shopify's design system), making it feel native inside
-                                the Shopify admin — with no visual context-switching for the team.</p>
-                        </div>
-                    </div>
-
-                    <div class="cs-section">
-                        <h2>Screenshots</h2>
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <div class="cs-screenshot">
-                                    <img src="image/projects/gatac-app-screenshot.png"
-                                        alt="GATAC Price List App in Shopify Admin">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cs-section">
-                        <h2>Results</h2>
-                        <p>The distributor team can now create B2B draft orders with customer-specific pricing entirely
-                            inside Shopify Admin — no separate system needed.</p>
-                        <ul>
-                            <li>Order creation time reduced from ~20 min (manual spreadsheet) to ~3 min</li>
-                            <li>Price lists managed by the team without developer involvement</li>
-                            <li>3 regions (USA/EU/UK) supported in one codebase from day one</li>
-                            <li>Phase 1 USA rollout delivered on schedule</li>
-                        </ul>
-                    </div>
+            <div class="cs2-meta-bar__inner">
+                <div class="cs2-meta-item">
+                    <span class="cs2-meta-item__label">Client</span>
+                    <span class="cs2-meta-item__value">GATAC</span>
                 </div>
-
-                <!-- Sidebar -->
-                <div class="col-lg-4">
-                    <div class="cs-sidebar">
-                        <div class="cs-detail">
-                            <h5>Client</h5>
-                            <p>GATAC (Automotive Parts Distributor)</p>
-                        </div>
-                        <div class="cs-detail">
-                            <h5>My Role</h5>
-                            <p>Full-Stack Developer</p>
-                        </div>
-                        <div class="cs-detail">
-                            <h5>Tech Stack</h5>
-                            <ul>
-                                <li>Shopify Liquid</li>
-                                <li>Next.js 14 App Router</li>
-                                <li>TypeScript / React</li>
-                                <li>Shopify Polaris</li>
-                                <li>Shopify Admin API</li>
-                                <li>Shopify SSO (App Bridge)</li>
-                                <li>PostgreSQL (Railway)</li>
-                                <li>Prisma ORM</li>
-                            </ul>
-                        </div>
-                        <div class="cs-detail">
-                            <h5>Year</h5>
-                            <p>2025–2026</p>
-                        </div>
-                        <div class="cs-detail">
-                            <h5>Region</h5>
-                            <p>USA (Phase 1) · EU · UK</p>
-                        </div>
+                <div class="cs2-meta-item">
+                    <span class="cs2-meta-item__label">Role</span>
+                    <span class="cs2-meta-item__value">Full-Stack Developer</span>
+                </div>
+                <div class="cs2-meta-item">
+                    <span class="cs2-meta-item__label">Year</span>
+                    <span class="cs2-meta-item__value">2025–2026</span>
+                </div>
+                <div class="cs2-meta-item">
+                    <span class="cs2-meta-item__label">Stack</span>
+                    <div class="cs2-stack">
+                        <span class="cs2-stack__pill">Shopify Liquid</span>
+                        <span class="cs2-stack__pill">Next.js 14</span>
+                        <span class="cs2-stack__pill">TypeScript</span>
+                        <span class="cs2-stack__pill">Polaris</span>
+                        <span class="cs2-stack__pill">PostgreSQL</span>
+                        <span class="cs2-stack__pill">Prisma</span>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="cs2-body">
+        <div class="cs2-article">
+
+            <div class="cs2-section">
+                <h2>Overview</h2>
+                <p>GATAC is an automotive parts distributor operating across the USA, EU, and UK. They needed a custom B2B distribution portal embedded inside Shopify Admin — a system where authorised distributors could place orders using customer-specific pricing that doesn't exist on the public storefront.</p>
+                <p>I built both the custom Shopify storefront theme and the embedded Next.js 14 portal from the ground up, integrating deeply with Shopify's Admin API and app proxy system.</p>
+            </div>
+
+            <div class="cs2-section">
+                <h2>The Challenge</h2>
+                <p>Shopify's native B2B features didn't support GATAC's pricing model. Each distributor needed its own price list, and sales reps needed to create draft orders on behalf of customers using those custom prices — all without touching the public storefront.</p>
+                <p>The portal also needed to live inside Shopify Admin as an embedded app, meaning authentication had to run through Shopify SSO (App Bridge) rather than a separate login system.</p>
+            </div>
+
+            <div class="cs2-section">
+                <h2>The Solution</h2>
+                <p>I built a Next.js 14 App Router application embedded in Shopify Admin via app proxy. Key features include:</p>
+                <ul>
+                    <li><strong>Custom Price Lists</strong> — Distributors are assigned price lists with customer-specific pricing overrides.</li>
+                    <li><strong>Draft Order Creation</strong> — Sales reps can select a customer, apply their price list, add products, and create Shopify draft orders in one flow.</li>
+                    <li><strong>Shopify SSO</strong> — Authentication runs entirely through Shopify App Bridge, eliminating the need for a separate login system.</li>
+                    <li><strong>Custom Storefront Theme</strong> — The Shopify theme was customised to support B2B redirect flows, keeping retail and wholesale traffic separated.</li>
+                    <li><strong>Multi-Region Support</strong> — The codebase is designed for USA (Phase 1) with EU and UK region support built in for future rollout.</li>
+                </ul>
+
+                <div class="cs2-callout">
+                    <p>The portal is built with Polaris (Shopify's design system), making it feel native inside the Shopify admin — with no visual context-switching for the team.</p>
+                </div>
+            </div>
+
+            <div class="cs2-section">
+                <h2>Screenshots</h2>
+                <div class="cs2-screenshots">
+                    <div class="cs2-screenshot">
+                        <img src="image/projects/gatac-app-screenshot.png" alt="GATAC Price List App in Shopify Admin">
+                    </div>
+                    <div class="cs2-screenshot">
+                        <img src="image/projects/gatac-app-draft.png" alt="GATAC Draft Order Creation">
+                    </div>
+                </div>
+            </div>
+
+            <div class="cs2-section">
+                <h2>Results</h2>
+                <p>The distributor team can now create B2B draft orders with customer-specific pricing entirely inside Shopify Admin — no separate system needed.</p>
+
+                <div class="cs2-metrics">
+                    <div class="cs2-metric">
+                        <div class="cs2-metric__number">85%</div>
+                        <div class="cs2-metric__label">Reduction in order creation time (20 min → 3 min)</div>
+                    </div>
+                    <div class="cs2-metric">
+                        <div class="cs2-metric__number">3</div>
+                        <div class="cs2-metric__label">Regions (USA/EU/UK) supported in one codebase</div>
+                    </div>
+                    <div class="cs2-metric">
+                        <div class="cs2-metric__number">0</div>
+                        <div class="cs2-metric__label">Developer involvement needed for price list updates</div>
+                    </div>
+                    <div class="cs2-metric">
+                        <div class="cs2-metric__number">✓</div>
+                        <div class="cs2-metric__label">Phase 1 USA rollout delivered on schedule</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
