@@ -1,4 +1,3 @@
-// Portfolio - Mobile First JavaScript
 (function() {
     'use strict';
 
@@ -7,7 +6,7 @@
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const sections = document.querySelectorAll('section[id]');
 
-    // Header sticky on scroll
+    // add .scrolled bg after passing hero
     function handleHeaderScroll() {
         const heroHeight = heroSection ? heroSection.offsetHeight : 0;
         const scrollY = window.scrollY;
@@ -19,7 +18,7 @@
         }
     }
 
-    // Smooth scroll for anchor links
+    // smooth scroll + close mobile nav on click
     function smoothScroll(e) {
         const href = this.getAttribute('href');
         if (!href || href.charAt(0) !== '#' || href === '#0') return;
@@ -36,7 +35,6 @@
                 behavior: 'smooth'
             });
 
-            // Close mobile navbar after clicking a link
             const navbarCollapse = document.querySelector('.navbar-collapse');
             if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                 const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
@@ -45,7 +43,7 @@
         }
     }
 
-    // Active nav link highlight
+    // highlight current section in nav
     function updateActiveNav() {
         const scrollPos = window.scrollY + 200;
 
@@ -65,7 +63,7 @@
         });
     }
 
-    // Navbar hide/show in hero section
+    // hide navbar while scrolling through hero, show after
     function toggleNavbar() {
         const currentScrollY = window.scrollY;
         const heroHeight = heroSection ? heroSection.offsetHeight : 0;
@@ -83,7 +81,7 @@
         }
     }
 
-    // Back to top button
+    // show/hide back-to-top button
     function handleBackToTop() {
         const backToTop = document.getElementById('backToTop');
         if (backToTop) {
@@ -95,7 +93,7 @@
         }
     }
 
-    // Animate stats numbers
+    // count up numbers when stats section is visible
     function animateStats() {
         const statNumbers = document.querySelectorAll('.stat-number');
 
@@ -128,7 +126,7 @@
         });
     }
 
-    // Set incrementing numbers for section headers
+    // auto-number section headers via CSS --section-number
     function setSectionHeaderNumbers() {
         const sectionHeaders = document.querySelectorAll('.section-header h2');
 
@@ -138,7 +136,7 @@
         });
     }
 
-    // Throttle scroll events for performance
+    // throttle with rAF to avoid layout thrashing
     let ticking = false;
     function onScroll() {
         if (!ticking) {
@@ -153,7 +151,6 @@
         }
     }
 
-    // Loading screen
     function hideLoadingScreen() {
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
@@ -163,19 +160,14 @@
         }
     }
 
-    // Initialize
     function init() {
-        // Hide loading screen when page is fully loaded
         window.addEventListener('load', hideLoadingScreen);
-
         window.addEventListener('scroll', onScroll, { passive: true });
 
-        // Smooth scroll for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', smoothScroll);
         });
 
-        // Initial calls
         handleHeaderScroll();
         updateActiveNav();
         toggleNavbar();
@@ -183,7 +175,6 @@
         setSectionHeaderNumbers();
     }
 
-    // Run when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

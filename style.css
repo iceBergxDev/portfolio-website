@@ -1,4 +1,4 @@
-/* --- Loading Screen --- */
+/* Loading Screen */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -103,7 +103,7 @@
     }
 }
 
-/* --- CSS Variables --- */
+/* Variables */
 :root {
     --color-primary: #C73E1D;
     --color-primary-dark: #a03218;
@@ -118,7 +118,7 @@
     --transition: all 0.3s ease;
 }
 
-/* --- Reset & Base (Mobile) --- */
+/* Reset & Base */
 *,
 *::before,
 *::after {
@@ -186,9 +186,7 @@ img {
     height: auto;
 }
 
-/* =============================================
-   HEADER - Mobile First
-   ============================================= */
+/* Header */
 .s-header {
     position: fixed;
     top: 0;
@@ -210,7 +208,6 @@ img {
     padding: 0;
 }
 
-/* Text brand styling */
 .s-header .navbar-brand {
     font-size: 1.5rem;
     color: var(--color-white);
@@ -222,7 +219,6 @@ img {
     color: var(--color-white);
 }
 
-/* Mobile navbar dropdown */
 .s-header .navbar-collapse {
     background: var(--color-dark);
     padding: 1rem;
@@ -246,7 +242,6 @@ img {
     color: var(--color-primary) !important;
 }
 
-/* Hamburger icon - white always */
 .s-header .navbar-toggler {
     border-color: rgba(255, 255, 255, 1);
     padding: 0.25rem 0.5rem;
@@ -261,16 +256,14 @@ img {
 }
 
 .s-header.scrolled .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 1);
 }
 
 .s-header.scrolled .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* =============================================
-   HERO / INTRO - Hudson Style, Mobile First
-   ============================================= */
+/* Hero */
 .s-intro {
     position: relative;
     width: 100%;
@@ -281,7 +274,6 @@ img {
     color: var(--color-white);
 }
 
-/* Content container */
 .s-intro__content {
     position: relative;
     z-index: 2;
@@ -293,7 +285,6 @@ img {
     padding-bottom: 8rem;
 }
 
-/* Text block */
 .s-intro__content-text {
     text-align: center;
     width: 100%;
@@ -317,7 +308,6 @@ img {
     margin: 0 0 2rem;
 }
 
-/* Buttons */
 .s-intro__buttons {
     margin-top: 2rem;
     display: flex;
@@ -364,7 +354,6 @@ img {
     color: var(--color-dark);
 }
 
-/* Background image - full width on mobile */
 .s-intro__media {
     position: absolute;
     top: 0;
@@ -380,7 +369,6 @@ img {
     object-position: center bottom;
 }
 
-/* Gradient overlays on image */
 .s-intro__media::after {
     content: '';
     position: absolute;
@@ -391,34 +379,31 @@ img {
     pointer-events: none;
 }
 
-/* Social links - hidden on mobile */
 .s-intro__social {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     list-style: none;
-    margin: 0;
+    margin: 1.5rem 0 0;
     padding: 0;
-    position: absolute;
-    z-index: 2;
-    right: 2rem;
-    bottom: 16rem;
-    width: 40px;
-    align-items: center;
+    gap: 1rem;
+    width: auto;
 }
 
 .s-intro__social li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0;
 }
 
 .s-intro__social a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     color: var(--color-white);
-    opacity: 0.5;
+    opacity: 1;
     transition: var(--transition);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 .s-intro__social a:hover {
@@ -426,7 +411,6 @@ img {
     color: var(--color-primary);
 }
 
-/* Scroll down indicator - bottom right */
 .s-intro__scroll-down {
     position: absolute;
     z-index: 2;
@@ -449,13 +433,13 @@ img {
     letter-spacing: 0.2em;
     writing-mode: vertical-rl;
     margin-bottom: 1rem;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .s-intro__scroll-down .scroll-icon {
     width: 40px;
     height: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -474,15 +458,14 @@ img {
     opacity: 1;
 }
 
-/* Vertical line above scroll icon */
 .s-intro__scroll-down::before {
     content: '';
     display: block;
     width: 1px;
     height: 4rem;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 1);
     position: absolute;
-    top: calc(-3rem - 1rem);
+    top: calc(-4rem - 1rem);
     left: 50%;
 }
 
@@ -505,9 +488,7 @@ img {
     }
 }
 
-/* =============================================
-   SMALL MOBILE FIX (max-width: 420px)
-   ============================================= */
+/* Small Mobile (max-width: 420px) */
 @media (max-width: 420px) {
     .s-intro__content {
         padding: 0 1rem;
@@ -557,7 +538,6 @@ img {
         font-size: 0.85rem;
     }
 
-    /* Section headers */
     .section-header h2 {
         font-size: 1.4rem;
     }
@@ -566,7 +546,6 @@ img {
         font-size: 2.5rem;
     }
 
-    /* About */
     .about-text .lead {
         font-size: 1rem;
     }
@@ -579,7 +558,6 @@ img {
         font-size: 0.8rem;
     }
 
-    /* Skills */
     .skill-icon {
         font-size: 1.5rem;
     }
@@ -588,7 +566,6 @@ img {
         font-size: 0.65rem;
     }
 
-    /* Stats */
     .stat-number {
         font-size: 1.4rem;
     }
@@ -597,15 +574,12 @@ img {
         font-size: 0.65rem;
     }
 
-    /* Contact */
     .contact-icon {
         font-size: 1.5rem;
     }
 }
 
-/* =============================================
-   SECTION SHARED STYLES - Mobile First
-   ============================================= */
+/* Sections */
 .section-header {
     margin-bottom: 2rem;
     text-align: center;
@@ -622,7 +596,6 @@ img {
     border-left: 3px solid var(--color-primary);
 }
 
-/* Section number watermark */
 .section-header h2::before {
     content: var(--section-number, '');
     opacity: 0.08;
@@ -636,7 +609,6 @@ img {
     font-family: var(--font-main);
 }
 
-/* Remove the dot after heading (replaced by left border) */
 .section-header h2::after {
     content: '';
 }
@@ -706,9 +678,7 @@ img {
     top: 0.65em;
 }
 
-/* =============================================
-   SKILLS SECTION - Mobile First
-   ============================================= */
+/* Skills */
 .section-skills {
     padding: 4rem 0;
 }
@@ -736,9 +706,7 @@ img {
     font-weight: 500;
 }
 
-/* =============================================
-   WORKS SECTION - Mobile First
-   ============================================= */
+/* Works */
 .section-works {
     padding: 4rem 0;
 }
@@ -875,9 +843,7 @@ img {
     color: var(--color-gray);
 }
 
-/* =============================================
-   CONTACT SECTION - Mobile First
-   ============================================= */
+/* Contact */
 .section-contact {
     padding: 4rem 0;
 }
@@ -886,7 +852,6 @@ img {
     color: var(--color-gray);
 }
 
-/* Responsive icon size for contact */
 .contact-icon {
     font-size: 2rem;
     color: var(--color-primary) !important;
@@ -946,9 +911,7 @@ img {
     border-color: var(--color-primary-dark);
 }
 
-/* =============================================
-   FOOTER - Mobile First
-   ============================================= */
+/* Footer */
 .footer {
     background: var(--color-dark);
     color: var(--color-white);
@@ -972,9 +935,7 @@ img {
     color: var(--color-primary);
 }
 
-/* =============================================
-   BACK TO TOP - Mobile First
-   ============================================= */
+/* Back to Top */
 .back-to-top {
     position: fixed;
     bottom: 1.25rem;
@@ -1006,9 +967,7 @@ img {
     transform: translateY(-3px);
 }
 
-/* =============================================
-   GLOBAL BUTTON OVERRIDES
-   ============================================= */
+/* Buttons */
 .btn-primary {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
@@ -1025,17 +984,13 @@ img {
     font-size: 0.85rem;
 }
 
-/* Override Bootstrap text-primary */
 .text-primary {
     color: var(--color-primary) !important;
 }
 
-/* =============================================
-   TABLET (min-width: 768px)
-   ============================================= */
+/* Tablet (768px) */
 @media (min-width: 768px) {
 
-    /* Header */
     .s-header .navbar-collapse {
         background: transparent;
         padding: 0;
@@ -1058,7 +1013,6 @@ img {
         color: var(--color-primary) !important;
     }
 
-    /* Hero - tablet */
     .s-intro__content {
         padding-left: 3rem;
         padding-right: 3rem;
@@ -1069,10 +1023,22 @@ img {
     }
 
     .s-intro__social {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        right: 2rem;
+        bottom: 16rem;
+        width: 40px;
+        z-index: 2;
+        margin: 0;
+        gap: 0;
     }
 
-    /* Section Header */
+    .s-intro__social li {
+        margin-bottom: 0.75rem;
+    }
+
     .section-header {
         text-align: left;
         margin-bottom: 2.5rem;
@@ -1088,7 +1054,6 @@ img {
         top: -50%;
     }
 
-    /* About */
     .section-about {
         padding: 5rem 0;
     }
@@ -1102,7 +1067,6 @@ img {
         font-size: 1.2rem;
     }
 
-    /* Skills */
     .section-skills {
         padding: 5rem 0;
     }
@@ -1115,7 +1079,6 @@ img {
         font-size: 0.85rem;
     }
 
-    /* Works */
     .section-works {
         padding: 5rem 0;
     }
@@ -1129,7 +1092,6 @@ img {
         aspect-ratio: 4 / 3;
     }
 
-    /* Stats */
     .section-stats {
         padding: 3rem 0;
     }
@@ -1142,7 +1104,6 @@ img {
         font-size: 0.8rem;
     }
 
-    /* Contact */
     .section-contact {
         padding: 5rem 0;
     }
@@ -1151,7 +1112,6 @@ img {
         font-size: 2.5rem;
     }
 
-    /* Back to Top */
     .back-to-top {
         bottom: 2rem;
         right: 2rem;
@@ -1161,12 +1121,8 @@ img {
     }
 }
 
-/* =============================================
-   DESKTOP (min-width: 992px)
-   ============================================= */
+/* Desktop (992px) */
 @media (min-width: 992px) {
-
-    /* Hero - desktop: image moves to right half */
     .s-intro__content {
         padding-top: max(18rem, 18vh);
         padding-left: 4rem;
@@ -1218,17 +1174,14 @@ img {
         right: 2.5rem;
     }
 
-    /* Section Header */
     .section-header h2 {
         font-size: 2.5rem;
     }
 
-    /* About */
     .section-about {
         padding: 6rem 0;
     }
 
-    /* Skills */
     .section-skills {
         padding: 6rem 0;
     }
@@ -1241,7 +1194,6 @@ img {
         font-size: 0.9rem;
     }
 
-    /* Works */
     .section-works {
         padding: 6rem 0;
     }
@@ -1259,7 +1211,6 @@ img {
         font-size: 1.125rem;
     }
 
-    /* Stats */
     .stat-number {
         font-size: 2.75rem;
     }
@@ -1268,7 +1219,6 @@ img {
         font-size: 0.85rem;
     }
 
-    /* Contact */
     .section-contact {
         padding: 6rem 0;
     }
@@ -1278,9 +1228,7 @@ img {
     }
 }
 
-
-/* LARGE DESKTOP (min-width: 1200px)  */
-
+/* Large Desktop (1200px) */
 @media (min-width: 1200px) {
     .s-intro__content {
         padding-left: 6rem;
