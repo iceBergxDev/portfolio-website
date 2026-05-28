@@ -1525,318 +1525,282 @@ img {
 }
 
 /* =============================================
-   CASE STUDY V2 — EDITORIAL REDESIGN
-   Inspired by blocks.so clean card patterns
+   CASE STUDY V2 — REDESIGN
+   Inspired by leerob.com / emilkowal.ski
+   Dark header · Feature image · Stats banner
 ============================================= */
 
-/* --- Hero --- */
-.cs2-hero {
-    position: relative;
-    height: 72vh;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
-    background: #111;
+/* ---- Dark header section ---- */
+.cs2-header {
+    background: #0f0f0f;
+    padding-top: 5rem;
 }
 
-.cs2-hero__bg {
-    position: absolute;
-    inset: 0;
+.cs2-header__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 3rem;
 }
 
-.cs2-hero__bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
-.cs2-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.15) 0%,
-        rgba(0, 0, 0, 0.45) 45%,
-        rgba(0, 0, 0, 0.88) 100%
-    );
-}
-
-.cs2-hero__content {
-    position: relative;
-    z-index: 2;
-    padding-bottom: 3.5rem;
-    padding-top: 1.5rem;
-}
-
-.cs2-hero__back {
+.cs2-header__back {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.38);
     text-decoration: none;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 1.75rem;
+    margin-bottom: 2.5rem;
     transition: color 0.2s;
-    position: absolute;
-    top: 5.5rem;
-    left: 0;
-    padding: 0 1.5rem;
 }
+.cs2-header__back:hover { color: rgba(255, 255, 255, 0.75); }
 
-.cs2-hero__back:hover {
-    color: #fff;
-}
-
-.cs2-hero__tags {
+.cs2-header__tags {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 0.875rem;
+    margin-bottom: 1rem;
 }
-
-.cs2-hero__tag {
+.cs2-header__tag {
     font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 0.22rem 0.65rem;
-    border-radius: 2rem;
-}
-
-.cs2-hero__title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4.5vw, 3.75rem);
-    line-height: 1.12;
-    color: #fff;
-    margin: 0;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-}
-
-/* --- Project Meta Bar (blocks.so-inspired horizontal strip) --- */
-.cs2-meta-bar {
-    background: #fff;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 1.25rem 0;
-}
-
-.cs2-meta-bar__inner {
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-}
-
-.cs2-meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    padding: 0.5rem 2rem 0.5rem 0;
-    border-right: 1px solid #e5e7eb;
-    margin-right: 2rem;
-}
-
-.cs2-meta-item:last-child {
-    border-right: none;
-    margin-right: 0;
-}
-
-.cs2-meta-item__label {
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     color: var(--color-primary);
     font-weight: 600;
 }
 
-.cs2-meta-item__value {
-    font-size: 0.875rem;
-    color: #1a1a1a;
+.cs2-header__title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    margin-bottom: 2.75rem;
+}
+
+.cs2-header__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.75rem;
+}
+.cs2-header__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-right: 2.5rem;
+    margin-right: 2.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cs2-header__meta-item:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+}
+.cs2-header__meta-label {
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.3);
+}
+.cs2-header__meta-value {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
     font-weight: 500;
     line-height: 1.4;
 }
 
-/* --- Body --- */
+/* ---- Stack pills (dark bg version) ---- */
+.cs2-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.1rem;
+}
+.cs2-stack__pill {
+    font-size: 0.68rem;
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Feature / cover image ---- */
+.cs2-cover {
+    background: #0f0f0f;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.cs2-cover img {
+    width: 100%;
+    max-height: 540px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    opacity: 0.9;
+}
+
+/* ---- Body ---- */
 .cs2-body {
-    background: #fafaf9;
-    padding: 4.5rem 0 6rem;
+    background: #fff;
 }
-
-.cs2-article {
-    max-width: 740px;
+.cs2-content {
+    max-width: 680px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 4.5rem 2rem 5rem;
 }
 
-/* --- Sections --- */
+/* ---- Content sections ---- */
 .cs2-section {
     margin-bottom: 3.5rem;
-    padding-bottom: 3.5rem;
-    border-bottom: 1px solid #e5e7eb;
 }
-
-.cs2-section:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+.cs2-section + .cs2-section {
+    padding-top: 3.5rem;
+    border-top: 1px solid #efefef;
 }
-
 .cs2-section h2 {
     font-family: var(--font-serif);
-    font-size: 1.7rem;
+    font-size: 1.85rem;
     font-weight: 400;
     color: #111;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
+    line-height: 1.2;
 }
-
 .cs2-section p {
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.85;
-    color: #4a4a4a;
+    color: #3d3d3d;
     margin-bottom: 1rem;
 }
-
+.cs2-section p:last-child { margin-bottom: 0; }
 .cs2-section ul {
     list-style: none;
     padding: 0;
-    margin: 0.5rem 0 1rem;
+    margin: 0.75rem 0;
 }
-
 .cs2-section ul li {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #4a4a4a;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #3d3d3d;
     padding-left: 1.5rem;
     position: relative;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
 }
-
 .cs2-section ul li::before {
-    content: '—';
+    content: "→";
     position: absolute;
     left: 0;
     color: var(--color-primary);
-    font-weight: 500;
+    font-size: 0.8em;
+    top: 0.15em;
 }
 
-/* --- Callout / Highlight box --- */
+/* ---- Callout ---- */
 .cs2-callout {
-    border-left: 3px solid var(--color-primary);
-    padding: 1.25rem 1.5rem;
-    background: rgba(199, 62, 29, 0.05);
-    border-radius: 0 8px 8px 0;
+    border-left: 2px solid var(--color-primary);
+    padding: 1rem 1.25rem;
     margin: 1.75rem 0;
+    background: #fafafa;
+    border-radius: 0 6px 6px 0;
 }
-
 .cs2-callout p {
     margin: 0;
     font-style: italic;
-    color: #444;
+    color: #555;
+    font-size: 1rem;
 }
 
-/* --- Metric cards (blocks.so stats pattern) --- */
-.cs2-metrics {
+/* ---- Stats banner — dark, full-width ---- */
+.cs2-stats {
+    background: #0f0f0f;
+    padding: 4rem 2rem;
+}
+.cs2-stats__inner {
+    max-width: 900px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-    gap: 1rem;
-    margin-top: 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0;
 }
-
-.cs2-metric {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1.5rem 1.25rem;
-    transition: box-shadow 0.2s;
+.cs2-stat {
+    padding: 0 3rem 0 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+    margin-right: 3rem;
 }
-
-.cs2-metric:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+.cs2-stat:last-child {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
 }
-
-.cs2-metric__number {
+.cs2-stat__number {
     font-family: var(--font-serif);
-    font-size: 2.1rem;
-    color: var(--color-primary);
+    font-size: 3rem;
+    color: #fff;
     line-height: 1;
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    display: block;
+    margin-bottom: 0.625rem;
+}
+.cs2-stat__label {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.55;
+    max-width: 160px;
 }
 
-.cs2-metric__label {
-    font-size: 0.8rem;
-    color: #666;
-    margin-top: 0.5rem;
-    line-height: 1.45;
-}
-
-/* --- Screenshots --- */
+/* ---- Screenshots section ---- */
 .cs2-screenshots {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-top: 1.5rem;
+    background: #f8f8f7;
+    padding: 4rem 2rem;
 }
-
+.cs2-screenshots__inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.cs2-screenshots h2 {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    font-weight: 400;
+    color: #111;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+}
 .cs2-screenshot {
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    background: #f0f0f0;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.09);
+    background: #eee;
+    margin-bottom: 1.25rem;
 }
-
+.cs2-screenshot:last-child { margin-bottom: 0; }
 .cs2-screenshot img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-/* --- Tech stack pills --- */
-.cs2-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.25rem;
-}
-
-.cs2-stack__pill {
-    font-size: 0.72rem;
-    background: #f3f4f6;
-    color: #374151;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    padding: 0.2rem 0.55rem;
-    letter-spacing: 0.02em;
-}
-
-/* --- Responsive --- */
+/* ---- Responsive ---- */
 @media (max-width: 767px) {
-    .cs2-hero {
-        height: 60vh;
-        min-height: 420px;
+    .cs2-header__title { font-size: 2rem; }
+    .cs2-header__meta-item {
+        padding-right: 1.5rem;
+        margin-right: 1.5rem;
     }
-
-    .cs2-hero__title {
-        font-size: 1.9rem;
+    .cs2-stats__inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .cs2-stat {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        padding-bottom: 2rem;
     }
-
-    .cs2-hero__back {
-        top: 4.5rem;
-    }
-
-    .cs2-meta-item {
-        padding: 0.4rem 1.25rem 0.4rem 0;
-        margin-right: 1.25rem;
-    }
-
-    .cs2-metrics {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .cs2-stat:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs2-content { padding: 3rem 1.25rem 4rem; }
+    .cs2-screenshots { padding: 3rem 1.25rem; }
 }
