@@ -1,0 +1,23 @@
+# Editor & IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Claude Code
+.claude/
+
+# Playwright / test artifacts
+.playwright-mcp/
+*.jpeg
+*.jpg.tmp
+
+# Dev planning docs
+docs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.log
