@@ -384,8 +384,9 @@ img {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 100%);
-    opacity: 0.5;
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.30) 50%, transparent 100%),
+        linear-gradient(to top, rgba(0,0,0,0.50) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -712,8 +713,7 @@ img {
 }
 
 .skill-icon {
-    font-size: 2rem;
-    color: var(--color-dark) !important;
+    font-size: 2.5rem;
 }
 
 .skill-card {
@@ -822,6 +822,26 @@ img {
     font-size: 0.85rem;
     color: var(--color-gray);
     margin: 0;
+}
+
+.work-image--logo-bg {
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.work-image--logo-bg .work-logo-img {
+    width: 55%;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(1.1);
+    transition: var(--transition);
+}
+
+.work-item:hover .work-image--logo-bg .work-logo-img {
+    transform: scale(1.08);
+    filter: grayscale(100%) brightness(0.6);
 }
 
 /* =============================================
@@ -1087,7 +1107,7 @@ img {
     }
 
     .skill-icon {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .skill-card h5 {
@@ -1167,7 +1187,6 @@ img {
 
     .s-intro__media::after {
         background: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 100%);
-        opacity: 0.3;
     }
 
     .s-intro__pretitle {
@@ -1227,12 +1246,12 @@ img {
     }
 
     .works-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
 
     .work-image {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 16 / 10;
     }
 
     .work-content h3 {
@@ -1289,5 +1308,217 @@ img {
 
     .s-intro__scroll-down {
         right: 3rem;
+    }
+}
+
+/* =============================================
+   Case Study Pages
+   ============================================= */
+
+.cs-hero {
+    padding-top: 6rem;
+    padding-bottom: 0;
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.cs-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.cs-back:hover {
+    color: var(--color-white);
+}
+
+.cs-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--color-white);
+}
+
+.cs-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.cs-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    background: rgba(199, 62, 29, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+}
+
+.cs-hero-img {
+    width: 100%;
+    max-height: 550px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    margin-top: 3rem;
+    border-radius: 8px 8px 0 0;
+}
+
+.cs-hero-img--app {
+    object-position: top center;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: #f5f5f5;
+}
+
+.cs-body {
+    padding: 5rem 0;
+}
+
+.cs-section {
+    padding: 4rem 0;
+}
+
+.cs-section + .cs-section {
+    border-top: 1px solid var(--color-border);
+}
+
+.cs-section h2 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
+}
+
+.cs-section p,
+.cs-section li {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-gray);
+}
+
+.cs-sidebar {
+    background: var(--color-light-gray);
+    border-radius: 10px;
+    padding: 1.75rem;
+    position: sticky;
+    top: 5rem;
+}
+
+.cs-detail {
+    margin-bottom: 1.5rem;
+}
+
+.cs-detail:last-child {
+    margin-bottom: 0;
+}
+
+.cs-detail h5 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    margin-bottom: 0.4rem;
+}
+
+.cs-detail p,
+.cs-detail li {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.cs-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cs-detail ul li::before {
+    content: '—  ';
+    color: var(--color-primary);
+}
+
+.cs-screenshot {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    margin-bottom: 1.5rem;
+}
+
+.cs-screenshot img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cs-nav {
+    border-top: 1px solid var(--color-border);
+    padding: 3rem 0;
+}
+
+.cs-nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cs-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: var(--transition);
+}
+
+.cs-nav-link:hover {
+    color: var(--color-primary);
+}
+
+.cs-nav-link span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gray);
+}
+
+.cs-nav-link strong {
+    font-size: 0.95rem;
+}
+
+.cs-nav-link--next {
+    text-align: right;
+}
+
+.cs-highlight-box {
+    border-left: 3px solid var(--color-primary);
+    padding: 1.25rem 1.5rem;
+    background: rgba(199, 62, 29, 0.05);
+    border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0;
+}
+
+.cs-highlight-box p {
+    margin: 0;
+    font-style: italic;
+}
+
+@media (max-width: 767px) {
+    .cs-sidebar {
+        position: static;
+        margin-top: 2rem;
+    }
+
+    .cs-hero h1 {
+        font-size: 2rem;
     }
 }
