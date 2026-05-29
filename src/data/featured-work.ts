@@ -6,7 +6,7 @@ export const featuredWork: Project[] = [
     title: 'GATAC — Shopify & B2B Portal',
     shortDescription: 'Next.js app embedded in Shopify Admin with draft order engine and App Bridge SSO.',
     tags: ['Shopify', 'Next.js', 'App Bridge'],
-    coverImage: '/image/projects/gatac-app-screenshot.png',
+    coverImage: '/image/projects/gatac-logo.png',
     hasCaseStudy: true,
   },
   {
