@@ -1660,4 +1660,95 @@ img {
     .cs2-stat:last-child { border-bottom: none; padding-bottom: 0; }
     .cs2-stat__number { font-size: 2.25rem; }
     .cs2-screenshots { padding: 3rem 1.25rem; }
+    .cs2-feature { grid-template-columns: 1fr; }
+    .cs2-feature:nth-child(even) { direction: ltr; }
+    .cs2-feature__text { padding: 1.5rem 0 0; }
+}
+
+/* ---- Feature highlight blocks (image + description side-by-side) ---- */
+.cs2-features {
+    background: #fff;
+    padding: 4rem 3rem;
+}
+.cs2-features__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cs2-features h2 {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    font-weight: 400;
+    color: #111;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+}
+.cs2-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid #efefef;
+}
+.cs2-feature:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+/* Alternate: even items flip image to right */
+.cs2-feature:nth-child(even) {
+    direction: rtl;
+}
+.cs2-feature:nth-child(even) > * {
+    direction: ltr;
+}
+.cs2-feature__image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.1);
+    background: #f0f0f0;
+}
+.cs2-feature__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.cs2-feature__text {
+    padding: 1rem 0;
+}
+.cs2-feature__tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-primary);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+.cs2-feature__text h3 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #111;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+.cs2-feature__text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
+}
+
+@media (min-width: 1600px) {
+    .cs2-features__inner { max-width: 1400px; }
+    .cs2-features { padding: 5rem 4rem; }
+}
+
+@media (max-width: 1023px) {
+    .cs2-feature { grid-template-columns: 1fr; gap: 2rem; }
+    .cs2-feature:nth-child(even) { direction: ltr; }
+    .cs2-feature__text { padding: 0; }
 }
