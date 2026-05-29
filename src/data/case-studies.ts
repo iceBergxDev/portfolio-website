@@ -12,7 +12,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'GATAC needed a B2B portal where sales reps could build draft orders for wholesale customers — applying per-customer price lists, managing products, and pushing orders directly into Shopify — all from inside Shopify Admin.',
     solution: 'Engineered a Next.js 14 App Router application embedded inside Shopify Admin via app proxy, authenticating with App Bridge SSO. Built a single-screen draft order engine wired to the Shopify Admin API.',
     tags: ['Shopify', 'Next.js', 'App Bridge', 'Admin API'],
-    coverImage: '/image/projects/gatac-screenshot.png',
+    coverImage: '/image/projects/gatac-app-screenshot.png',
     hasCaseStudy: true,
     features: [
       {
@@ -38,7 +38,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'Foley Logistics needed to replace paper-based vehicle pre-start checklists with a digital system — with driver portals, conditional checklists by vehicle type, photo capture, and a compliant self-hosted audit trail.',
     solution: 'Architected the Foley Pre-Start plugin in PHP 8 from scratch — a full digital inspection system built on WordPress with real-time fault routing, manager dashboards, and a MySQL-backed audit trail.',
     tags: ['WordPress', 'PHP 8', 'MySQL', 'Plugin Dev'],
-    coverImage: '/image/projects/foley-hero.jpg',
+    coverImage: '/image/projects/foley-prod-hero.jpg',
     hasCaseStudy: true,
     features: [
       {
@@ -69,7 +69,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'AJ Flooring needed a website that established credibility (40+ years, ATFA certification, Bona partner), converted researchers into enquiries, and performed well enough in Core Web Vitals to rank and win awards.',
     solution: 'Built a custom Elementor-powered WordPress site with a reusable service carousel, trust-signal hierarchy above the fold, and NitroPack-tuned performance — earning a 2025 Business Award finalist nomination.',
     tags: ['WordPress', 'Elementor', 'NitroPack', 'SEO'],
-    coverImage: '/image/projects/ajflooring-hero-new.jpg',
+    coverImage: '/image/projects/ajflooring-prod-hero.jpg',
     hasCaseStudy: true,
     features: [
       {
@@ -100,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'Australian Synthetic Lawns needed a site that converted both retail customers and trade buyers, with a client-editable CMS, WooCommerce product catalogue, and multi-step quote forms to move visitors from research to enquiry.',
     solution: 'Built a custom Divi child theme with separate conversion paths for retail and trade, multi-step quote forms, a four-pillar trust section, and structured pages the client edits independently.',
     tags: ['WordPress', 'Divi', 'WooCommerce', 'Lead Gen'],
-    coverImage: '/image/projects/asl-hero-new.jpg',
+    coverImage: '/image/projects/asl-prod-hero.jpg',
     hasCaseStudy: true,
     features: [
       {
@@ -131,7 +131,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'Grind needed a website matching their bold café aesthetic — oversized display type, paper-texture palette, full-bleed photography — while letting non-technical staff update seasonal menus and specials themselves.',
     solution: 'Translated the brand into a high-impact Elementor build, structured the CMS so staff control all editorial content, and configured SiteGround CDN for fast loads on a media-heavy site.',
     tags: ['WordPress', 'Elementor', 'CDN', 'CMS'],
-    coverImage: '/image/projects/grind-hero.jpg',
+    coverImage: '/image/projects/grind-prod-hero.jpg',
     hasCaseStudy: true,
     features: [
       {
@@ -162,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'Birdhouse Media needed their site re-architected from a generic finance theme into a creative agency website — with a filterable portfolio, video-embedded team cards, and layouts the client can update without touching code.',
     solution: 'Re-architected using three custom post types (portfolio, service, team) with Elementor theme-builder templates for all headers, footers, and page layouts — giving every element conditional display logic.',
     tags: ['WordPress', 'Custom Post Types', 'Elementor', 'Video'],
-    coverImage: '/image/projects/birdhouse-hero.jpg',
+    coverImage: '/image/projects/birdhouse-prod-hero.jpg',
     hasCaseStudy: true,
     features: [
       {
@@ -193,7 +193,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'Newstart Homes needed a website where hesitant buyers could browse house plans, understand the build process, and trust the builder — with a filterable catalogue, high-res gallery, and enquiry forms to convert researchers.',
     solution: 'Built a custom listing post type for house designs with filter by size and style, structured the "Why Newstart" section to surface key trust signals, and implemented NitroPack for a performance-tuned image-heavy site.',
     tags: ['WordPress', 'Custom Post Types', 'NitroPack', 'UX'],
-    coverImage: '/image/projects/newstart-hero.jpg',
+    coverImage: '/image/projects/newstart-prod-hero.jpg',
     hasCaseStudy: true,
     features: [
       {
