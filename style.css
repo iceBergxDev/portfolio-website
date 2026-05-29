@@ -793,6 +793,45 @@ img {
     margin: 0;
 }
 
+.work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.6rem;
+}
+
+.work-tag {
+    font-size: 0.65rem;
+    background: #f0f0f0;
+    color: #555;
+    border-radius: 4px;
+    padding: 0.1rem 0.45rem;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+}
+
+.skill-used-in {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.skill-used-in a {
+    font-size: 0.58rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    opacity: 0.8;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+}
+
+.skill-used-in a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
 .work-image--logo-bg {
     background: #fff;
     border: 1px solid #ececec;

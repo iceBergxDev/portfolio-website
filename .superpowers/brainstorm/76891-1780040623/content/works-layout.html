@@ -1,0 +1,241 @@
+<h2>Works Section — Card Layout</h2>
+<p class="subtitle">หน้าตาของ case study cards — 7 โปรเจกต์จะแสดงในรูปแบบไหน</p>
+
+<style>
+  :root { --amber: #fbbf24; --amber-dark: #d97706; --amber-dim: rgba(251,191,36,0.12); }
+
+  .layout-options { display: flex; flex-direction: column; gap: 24px; margin-top: 20px; }
+
+  .lo-card {
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #2d2d2d;
+    transition: all 0.2s;
+    background: #0f0f0f;
+  }
+  .lo-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+  .lo-card.selected { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(251,191,36,0.15); }
+
+  .lo-preview {
+    background: #0a0a0a;
+    padding: 20px 24px;
+  }
+  .lo-label {
+    padding: 12px 16px;
+    background: #111;
+    border-top: 1px solid #1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lo-label h3 { font-size: 12px; font-weight: 700; color: #f9fafb; margin: 0; }
+  .lo-label p { font-size: 10px; color: #9ca3af; margin: 0; }
+  .badge { background: var(--amber-dim); color: var(--amber); font-size: 8px; padding: 2px 8px; border-radius: 99px; margin-left: 8px; }
+
+  /* Option A: 3-col grid */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .card-sm {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2d2d2d;
+  }
+  .card-sm-img { height: 60px; background: #2d2d2d; position: relative; overflow: hidden; }
+  .card-sm-img .browser-bar {
+    height: 10px;
+    background: #374151;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    gap: 3px;
+  }
+  .dot { width: 4px; height: 4px; border-radius: 50%; }
+  .card-sm-body { padding: 8px 10px; }
+  .card-sm-title { font-size: 9px; font-weight: 700; color: #f3f4f6; margin-bottom: 3px; }
+  .card-sm-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tag-sm { background: #1f2937; color: #9ca3af; font-size: 7px; padding: 1px 6px; border-radius: 99px; }
+  .tag-amber { background: var(--amber-dim); color: var(--amber); }
+
+  /* Option B: 2-col feature + list */
+  .feature-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px; }
+  .card-feature {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2d2d2d;
+  }
+  .card-feature-img { height: 90px; background: linear-gradient(135deg, #1f2937, #374151); position: relative; }
+  .card-feature-img .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    display: flex; align-items: flex-end; padding: 10px;
+  }
+  .card-feature-body { padding: 10px 12px; }
+  .card-mini-list { display: flex; flex-direction: column; gap: 6px; }
+  .card-mini {
+    background: #1a1a1a;
+    border-radius: 6px;
+    border: 1px solid #2d2d2d;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mini-thumb { width: 36px; height: 36px; background: #374151; border-radius: 4px; flex-shrink: 0; }
+  .mini-title { font-size: 9px; font-weight: 700; color: #f3f4f6; }
+  .mini-sub { font-size: 8px; color: #6b7280; }
+
+  /* Option C: Horizontal list */
+  .horiz-list { display: flex; flex-direction: column; gap: 6px; }
+  .horiz-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #2d2d2d;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.15s;
+  }
+  .horiz-thumb { width: 48px; height: 36px; background: linear-gradient(135deg, #374151, #4b5563); border-radius: 5px; flex-shrink: 0; }
+  .horiz-info { flex: 1; }
+  .horiz-title { font-size: 10px; font-weight: 700; color: #f3f4f6; margin-bottom: 2px; }
+  .horiz-sub { font-size: 8px; color: #6b7280; }
+  .horiz-tags { display: flex; gap: 4px; }
+  .horiz-arrow { color: #374151; font-size: 14px; }
+
+  /* Sample colors for previews */
+  .img-foley { background: linear-gradient(135deg, #1e3a5f, #1e40af); }
+  .img-aj { background: linear-gradient(135deg, #14532d, #166534); }
+  .img-asl { background: linear-gradient(135deg, #4c1d95, #5b21b6); }
+  .img-gatac { background: linear-gradient(135deg, #7c2d12, #9a3412); }
+  .img-grind { background: linear-gradient(135deg, #1c1917, #292524); }
+  .img-bird { background: linear-gradient(135deg, #0c4a6e, #075985); }
+  .img-new { background: linear-gradient(135deg, #3b0764, #4c1d95); }
+
+  .section-label {
+    font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #1f2937; }
+</style>
+
+<div class="layout-options">
+
+  <!-- Option A: 3-col grid -->
+  <div class="lo-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="lo-preview">
+      <div class="section-label">Selected Work</div>
+      <div class="grid-3">
+        <div class="card-sm">
+          <div class="card-sm-img img-foley">
+            <div class="browser-bar"><div class="dot" style="background:#ef4444"></div><div class="dot" style="background:#f59e0b"></div><div class="dot" style="background:#22c55e"></div></div>
+          </div>
+          <div class="card-sm-body">
+            <div class="card-sm-title">Foley & Associates</div>
+            <div class="card-sm-tags"><span class="tag-sm tag-amber">WordPress</span><span class="tag-sm">PHP</span></div>
+          </div>
+        </div>
+        <div class="card-sm">
+          <div class="card-sm-img img-aj">
+            <div class="browser-bar"><div class="dot" style="background:#ef4444"></div><div class="dot" style="background:#f59e0b"></div><div class="dot" style="background:#22c55e"></div></div>
+          </div>
+          <div class="card-sm-body">
+            <div class="card-sm-title">AJ Flooring</div>
+            <div class="card-sm-tags"><span class="tag-sm tag-amber">WP</span><span class="tag-sm">SEO</span></div>
+          </div>
+        </div>
+        <div class="card-sm">
+          <div class="card-sm-img img-asl">
+            <div class="browser-bar"><div class="dot" style="background:#ef4444"></div><div class="dot" style="background:#f59e0b"></div><div class="dot" style="background:#22c55e"></div></div>
+          </div>
+          <div class="card-sm-body">
+            <div class="card-sm-title">ASL</div>
+            <div class="card-sm-tags"><span class="tag-sm tag-amber">WooCommerce</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lo-label">
+      <div>
+        <h3>A — 3-Column Grid <span class="badge">Most Common</span></h3>
+        <p>แสดงทุกโปรเจกต์พร้อมกัน — scan ได้เร็ว</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: Featured + List -->
+  <div class="lo-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="lo-preview">
+      <div class="section-label">Selected Work</div>
+      <div class="feature-layout">
+        <div class="card-feature">
+          <div class="card-feature-img img-gatac">
+            <div class="overlay">
+              <span style="font-size:11px;font-weight:700;color:#fff;">GATAC Aviation</span>
+            </div>
+          </div>
+          <div class="card-feature-body">
+            <div style="font-size:8px;color:var(--amber);margin-bottom:3px;">Featured Project</div>
+            <div style="font-size:9px;color:#9ca3af;line-height:1.4;">Custom WordPress · Booking System · API</div>
+          </div>
+        </div>
+        <div class="card-mini-list">
+          <div class="card-mini"><div class="mini-thumb img-foley"></div><div><div class="mini-title">Foley & Associates</div><div class="mini-sub">WordPress · PHP</div></div></div>
+          <div class="card-mini"><div class="mini-thumb img-aj"></div><div><div class="mini-title">AJ Flooring</div><div class="mini-sub">WP · SEO</div></div></div>
+          <div class="card-mini"><div class="mini-thumb img-asl"></div><div><div class="mini-title">ASL</div><div class="mini-sub">WooCommerce</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="lo-label">
+      <div>
+        <h3>B — Featured Hero + Side List <span class="badge">★ Recommended</span></h3>
+        <p>โปรเจกต์ดีที่สุดโดดเด่น — hierarchy ชัดเจน</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C: Horizontal rows -->
+  <div class="lo-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="lo-preview">
+      <div class="section-label">Selected Work</div>
+      <div class="horiz-list">
+        <div class="horiz-card">
+          <div class="horiz-thumb img-gatac"></div>
+          <div class="horiz-info">
+            <div class="horiz-title">GATAC Aviation</div>
+            <div class="horiz-sub">Booking · WordPress · Custom API</div>
+          </div>
+          <div class="horiz-tags"><span class="tag-sm tag-amber">WordPress</span><span class="tag-sm">JS</span></div>
+          <div class="horiz-arrow">→</div>
+        </div>
+        <div class="horiz-card">
+          <div class="horiz-thumb img-foley"></div>
+          <div class="horiz-info">
+            <div class="horiz-title">Foley & Associates</div>
+            <div class="horiz-sub">Law firm · WordPress · PHP</div>
+          </div>
+          <div class="horiz-tags"><span class="tag-sm tag-amber">WordPress</span><span class="tag-sm">PHP</span></div>
+          <div class="horiz-arrow">→</div>
+        </div>
+        <div class="horiz-card">
+          <div class="horiz-thumb img-aj"></div>
+          <div class="horiz-info">
+            <div class="horiz-title">AJ Flooring</div>
+            <div class="horiz-sub">E-commerce · SEO · GA4</div>
+          </div>
+          <div class="horiz-tags"><span class="tag-sm tag-amber">WP</span><span class="tag-sm">SEO</span></div>
+          <div class="horiz-arrow">→</div>
+        </div>
+      </div>
+    </div>
+    <div class="lo-label">
+      <div>
+        <h3>C — Horizontal List (Table style)</h3>
+        <p>อ่านเป็นบรรทัด — เหมือน resume, ดู professional</p>
+      </div>
+    </div>
+  </div>
+
+</div>

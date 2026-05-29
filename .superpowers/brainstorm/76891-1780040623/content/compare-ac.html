@@ -1,0 +1,277 @@
+<h2>A vs C — Side-by-Side Comparison</h2>
+<p class="subtitle">ดูแบบละเอียดขึ้น — คลิกอันที่ชอบกว่า</p>
+
+<style>
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .compare-card {
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #2d2d2d;
+    transition: all 0.2s;
+  }
+  .compare-card:hover { border-color: #818cf8; transform: translateY(-3px); }
+  .compare-card.selected { border-color: #818cf8; box-shadow: 0 0 0 4px rgba(129,140,248,0.2); }
+
+  /* === LAYOUT A === */
+  .card-a .hero {
+    height: 280px;
+    background: #0a0a0a;
+    display: flex;
+    overflow: hidden;
+  }
+  .card-a .hero-left {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-a .hero-right {
+    width: 42%;
+    background: linear-gradient(170deg, #111827 0%, #1f2937 50%, #374151 100%);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .card-a .hero-right::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 180px;
+    background: linear-gradient(180deg, #4b5563 0%, #6b7280 60%, #374151 100%);
+    border-radius: 12px 12px 0 0;
+    opacity: 0.5;
+  }
+  .card-a .hero-right::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: #6b7280;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  .card-a .pretitle {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #818cf8;
+    margin-bottom: 10px;
+  }
+  .card-a .big-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .card-a .tagline {
+    font-size: 11px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    max-width: 200px;
+  }
+  .card-a .btns {
+    display: flex;
+    gap: 8px;
+  }
+  .btn-primary-dark {
+    background: #6366f1;
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .btn-ghost-dark {
+    border: 1px solid #374151;
+    color: #9ca3af;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 10px;
+  }
+
+  /* === LAYOUT C === */
+  .card-c .hero {
+    height: 280px;
+    display: flex;
+    overflow: hidden;
+  }
+  .card-c .split-left {
+    flex: 1.1;
+    background: #f8f8f6;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-c .split-right {
+    flex: 1;
+    background: #0a0a0a;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-c .split-right::before {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: rgba(99,102,241,0.12);
+    border-radius: 50%;
+  }
+  .card-c .split-right::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 80px; height: 80px;
+    background: rgba(129,140,248,0.06);
+    border-radius: 50%;
+  }
+  .card-c .light-eyebrow {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #9ca3af;
+    margin-bottom: 10px;
+  }
+  .card-c .light-name {
+    font-size: 24px;
+    font-weight: 900;
+    color: #0f0f0f;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .card-c .light-sub {
+    font-size: 10px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  /* Shared nav */
+  .mock-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 24px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .mock-nav.light { background: #fff; border-bottom: 1px solid #e5e7eb; }
+  .mock-nav .logo { font-size: 13px; font-weight: 800; color: #fff; }
+  .mock-nav .logo.dark-logo { color: #111; }
+  .mock-nav .logo span { color: #818cf8; }
+  .mock-nav .links { display: flex; gap: 14px; font-size: 9px; color: #6b7280; }
+
+  /* Pros/cons section */
+  .verdict-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .verdict-box { padding: 14px 16px; }
+  .verdict-box h4 { font-size: 11px; font-weight: 700; color: #f3f4f6; margin: 0 0 10px; }
+  .verdict-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 7px;
+    font-size: 10px;
+    color: #d1d5db;
+    line-height: 1.4;
+  }
+  .verdict-item .icon { flex-shrink: 0; margin-top: 1px; }
+  .plus { color: #34d399; }
+  .minus { color: #f87171; }
+</style>
+
+<div class="compare-grid">
+
+  <!-- LAYOUT A -->
+  <div class="compare-card card-a" data-choice="a" onclick="toggleSelect(this)">
+    <div style="background:#111;padding:0;">
+      <div class="mock-nav">
+        <span class="logo">Pirun<span>.</span></span>
+        <div class="links"><span>Home</span><span>About</span><span>Works</span><span>Contact</span></div>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="hero-left">
+        <div class="pretitle">Web Developer · Bangkok</div>
+        <div class="big-name">Pirun<br>Kongsaeng</div>
+        <div class="tagline">Building fast, SEO-strong websites for clients in TH, AU & UK.</div>
+        <div class="btns">
+          <div class="btn-primary-dark">View Work</div>
+          <div class="btn-ghost-dark">Contact</div>
+        </div>
+      </div>
+      <div class="hero-right"></div>
+    </div>
+    <div class="verdict-box" style="background:#111;border-top:1px solid #1f2937;">
+      <h4>A — Dark Hero + Photo</h4>
+      <div class="verdict-item"><span class="icon plus">✓</span><span>รูปคุณปรากฏทันที — personal, น่าไว้ใจ</span></div>
+      <div class="verdict-item"><span class="icon plus">✓</span><span>Layout คุ้นตา อ่านง่าย readable มาก</span></div>
+      <div class="verdict-item"><span class="icon plus">✓</span><span>ต่อยอดจาก layout เดิม — migrate ง่ายกว่า</span></div>
+      <div class="verdict-item"><span class="icon minus">✗</span><span>ดู common กว่า — หลาย portfolio ใช้แบบนี้</span></div>
+    </div>
+  </div>
+
+  <!-- LAYOUT C -->
+  <div class="compare-card card-c" data-choice="c" onclick="toggleSelect(this)">
+    <div style="background:#fff;padding:0;">
+      <div class="mock-nav light">
+        <span class="logo dark-logo">Pirun<span>.</span></span>
+        <div class="links" style="color:#374151;"><span>Work</span><span>About</span><span>Contact</span></div>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="split-left">
+        <div class="light-eyebrow">Portfolio · 2026</div>
+        <div class="light-name">Building<br>the web,<br>right.</div>
+        <div class="light-sub">WordPress · React · Frontend</div>
+        <div class="btn-primary-dark" style="display:inline-block;">See Work →</div>
+      </div>
+      <div class="split-right">
+        <div class="pretitle" style="margin-bottom:6px;">Pirun Kongsaeng</div>
+        <div style="font-size:11px;color:#9ca3af;line-height:1.6;margin-bottom:14px;">5+ years building sites<br>for TH · AU · UK clients</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+          <span style="background:#1f2937;color:#a5b4fc;font-size:8px;padding:3px 8px;border-radius:99px;">WordPress</span>
+          <span style="background:#1f2937;color:#a5b4fc;font-size:8px;padding:3px 8px;border-radius:99px;">React</span>
+          <span style="background:#1f2937;color:#a5b4fc;font-size:8px;padding:3px 8px;border-radius:99px;">SEO</span>
+        </div>
+        <div class="btn-ghost-dark" style="display:inline-block;font-size:9px;">Download CV</div>
+      </div>
+    </div>
+    <div class="verdict-box" style="background:#0f0f0f;border-top:1px solid #1f2937;">
+      <h4>C — Split Light/Dark</h4>
+      <div class="verdict-item"><span class="icon plus">✓</span><span>เป็นเอกลักษณ์มาก — แตกต่างจาก portfolio ทั่วไป</span></div>
+      <div class="verdict-item"><span class="icon plus">✓</span><span>Skills/Tech stack ขวาซ้ายชัดเจน ทันที</span></div>
+      <div class="verdict-item"><span class="icon plus">✓</span><span>โชว์ React/Next.js skill ได้ดี (dark mode toggle)</span></div>
+      <div class="verdict-item"><span class="icon minus">✗</span><span>ไม่มีรูปคุณ — less personal กว่า A</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:20px;padding:14px 16px;background:#0f172a;border-radius:10px;border:1px solid #1e3a5f;">
+  <p style="font-size:11px;color:#93c5fd;margin:0 0 4px;font-weight:600;">💡 ความเห็นส่วนตัว</p>
+  <p style="font-size:10px;color:#94a3b8;margin:0;line-height:1.6;"><strong style="color:#e2e8f0;">A</strong> ถ้าอยากให้ดู professional และ approachable — รูปคุณช่วยได้มาก · <strong style="color:#e2e8f0;">C</strong> ถ้าอยากโชว์ว่า "นี่แหละ developer ที่ design เป็นด้วย" — split contrast บอกเรื่องราวได้เร็วกว่า</p>
+</div>

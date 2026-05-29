@@ -1,0 +1,253 @@
+<h2>Design Direction — Portfolio Redesign</h2>
+<p class="subtitle">เลือก "feel" ที่อยากให้ portfolio ของคุณเป็น — แต่ละแบบใช้ content เดิม แต่ให้ความรู้สึกต่างกัน</p>
+
+<style>
+  .direction-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .dir-card {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .dir-card:hover { border-color: #6366f1; transform: translateY(-2px); }
+  .dir-card.selected { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.2); }
+  .dir-preview {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Direction A — Clean & Minimal */
+  .dir-a .dir-preview {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 20px;
+    justify-content: center;
+  }
+  .dir-a .mock-nav-a {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    background: #fff;
+  }
+  .dir-a .mock-nav-a .nav-links { display: flex; gap: 16px; color: #6b7280; font-size: 10px; }
+  .dir-a .hero-a {
+    margin-top: 40px;
+  }
+  .dir-a .tag-a {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 8px;
+  }
+  .dir-a .name-a {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .dir-a .desc-a {
+    font-size: 10px;
+    color: #6b7280;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .dir-a .btns-a { display: flex; gap: 8px; }
+  .dir-a .btn-solid { background: #111; color: #fff; padding: 6px 14px; border-radius: 4px; font-size: 9px; }
+  .dir-a .btn-ghost { border: 1px solid #d1d5db; color: #374151; padding: 6px 14px; border-radius: 4px; font-size: 9px; }
+
+  /* Direction B — Dark & Bold */
+  .dir-b .dir-preview {
+    background: #0f0f0f;
+    padding: 20px;
+    justify-content: center;
+  }
+  .dir-b .mock-nav-b {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #fff;
+    background: transparent;
+  }
+  .dir-b .mock-nav-b .nav-links { display: flex; gap: 16px; color: #9ca3af; font-size: 10px; }
+  .dir-b .hero-b { margin-top: 40px; }
+  .dir-b .accent-b {
+    width: 24px; height: 2px;
+    background: #818cf8;
+    margin-bottom: 10px;
+    border-radius: 2px;
+  }
+  .dir-b .name-b {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .dir-b .sub-b {
+    font-size: 11px;
+    color: #818cf8;
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .dir-b .desc-b { font-size: 9px; color: #9ca3af; line-height: 1.5; margin-bottom: 14px; }
+  .dir-b .btns-b { display: flex; gap: 8px; }
+  .dir-b .btn-glow { background: #6366f1; color: #fff; padding: 6px 14px; border-radius: 4px; font-size: 9px; box-shadow: 0 0 12px rgba(99,102,241,0.5); }
+  .dir-b .btn-outline-b { border: 1px solid #374151; color: #9ca3af; padding: 6px 14px; border-radius: 4px; font-size: 9px; }
+
+  /* Direction C — Editorial / Magazine */
+  .dir-c .dir-preview {
+    background: #faf9f7;
+    padding: 0;
+    overflow: hidden;
+  }
+  .dir-c .top-bar {
+    background: #1a1a1a;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dir-c .logo-c { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .dir-c .nav-c { display: flex; gap: 14px; font-size: 9px; color: #9ca3af; }
+  .dir-c .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 188px;
+  }
+  .dir-c .hero-left {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #faf9f7;
+  }
+  .dir-c .issue-c { font-size: 8px; text-transform: uppercase; letter-spacing: 2px; color: #9ca3af; margin-bottom: 10px; }
+  .dir-c .title-c { font-size: 18px; font-weight: 800; line-height: 1.15; color: #1a1a1a; margin-bottom: 6px; font-style: italic; }
+  .dir-c .byline-c { font-size: 9px; color: #6b7280; }
+  .dir-c .hero-right {
+    background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.1);
+    font-style: italic;
+  }
+
+  .dir-label { padding: 16px; background: #f9fafb; }
+  .dir-label h3 { font-size: 13px; font-weight: 700; margin: 0 0 4px; color: #111; }
+  .dir-label p { font-size: 11px; color: #6b7280; margin: 0; }
+  .dir-label .tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .dir-label .tag { background: #e0e7ff; color: #4338ca; font-size: 9px; padding: 2px 8px; border-radius: 99px; }
+  .dir-label .tag.dark { background: #1f2937; color: #c7d2fe; }
+  .dir-label .tag.warm { background: #fef3c7; color: #92400e; }
+</style>
+
+<div class="direction-grid">
+  <!-- A: Clean Minimal -->
+  <div class="dir-card dir-a" data-choice="a" onclick="toggleSelect(this)">
+    <div class="dir-preview">
+      <div class="mock-nav-a">
+        <span style="font-weight:700;font-size:12px;">Pirun<span style="color:#6366f1">.</span></span>
+        <div class="nav-links"><span>Home</span><span>About</span><span>Works</span><span>Contact</span></div>
+      </div>
+      <div class="hero-a">
+        <div class="tag-a">Web Developer · Bangkok</div>
+        <div class="name-a">I build fast,<br>purposeful websites.</div>
+        <div class="desc-a">5+ yrs WordPress & frontend · Thailand, AU, UK</div>
+        <div class="btns-a">
+          <div class="btn-solid">View Work</div>
+          <div class="btn-ghost">Contact</div>
+        </div>
+      </div>
+    </div>
+    <div class="dir-label">
+      <h3>A — Clean & Minimal</h3>
+      <p>White space, crisp type, understated. Lets work speak for itself.</p>
+      <div class="tags">
+        <span class="tag">Professional</span>
+        <span class="tag">Timeless</span>
+        <span class="tag">Simple</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: Dark & Bold -->
+  <div class="dir-card dir-b" data-choice="b" onclick="toggleSelect(this)">
+    <div class="dir-preview">
+      <div class="mock-nav-b">
+        <span style="font-weight:700;font-size:12px;color:#fff;">Pirun<span style="color:#818cf8">.</span></span>
+        <div class="nav-links"><span>Home</span><span>About</span><span>Works</span><span>Contact</span></div>
+      </div>
+      <div class="hero-b">
+        <div class="accent-b"></div>
+        <div class="name-b">Pirun<br>Kongsaeng</div>
+        <div class="sub-b">Web Developer & Frontend Engineer</div>
+        <div class="desc-b">Bangkok · 5+ years building for AU, UK, TH clients</div>
+        <div class="btns-b">
+          <div class="btn-glow">View Work</div>
+          <div class="btn-outline-b">Contact</div>
+        </div>
+      </div>
+    </div>
+    <div class="dir-label" style="background:#1f2937;">
+      <h3 style="color:#f9fafb;">B — Dark & Bold</h3>
+      <p style="color:#9ca3af;">High contrast, developer aesthetic. Signals technical depth.</p>
+      <div class="tags">
+        <span class="tag dark">Tech-forward</span>
+        <span class="tag dark">Bold</span>
+        <span class="tag dark">Modern</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: Editorial -->
+  <div class="dir-card dir-c" data-choice="c" onclick="toggleSelect(this)">
+    <div class="dir-preview">
+      <div class="top-bar">
+        <span class="logo-c">P·K</span>
+        <div class="nav-c"><span>Work</span><span>About</span><span>Resume</span></div>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="issue-c">Web Developer · 2026</div>
+          <div class="title-c">"I build sites<br>that actually<br>perform."</div>
+          <div class="byline-c">Pirun Kongsaeng — Bangkok</div>
+        </div>
+        <div class="hero-right">PK</div>
+      </div>
+    </div>
+    <div class="dir-label">
+      <h3>C — Editorial / Magazine</h3>
+      <p>Structured grid, typographic personality. Distinctive & memorable.</p>
+      <div class="tags">
+        <span class="tag warm">Creative</span>
+        <span class="tag warm">Distinctive</span>
+        <span class="tag warm">Bold type</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="margin-top:20px;font-size:12px;color:#9ca3af;text-align:center;">คลิกเพื่อเลือก direction ที่ชอบ — หรือบอกในแชทก็ได้ครับ</p>

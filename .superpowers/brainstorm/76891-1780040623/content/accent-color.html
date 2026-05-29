@@ -1,0 +1,171 @@
+<h2>Accent Color</h2>
+<p class="subtitle">สีหลักที่จะใช้กับ button, link, highlight ทั่วทั้งเว็บ — บน dark background</p>
+
+<style>
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .color-card {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #2d2d2d;
+    transition: all 0.2s;
+    background: #111;
+  }
+  .color-card:hover { transform: translateY(-2px); }
+  .color-card.selected { box-shadow: 0 0 0 4px rgba(255,255,255,0.15); }
+
+  .color-preview {
+    background: #0a0a0a;
+    padding: 20px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cp-nav { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 16px; }
+  .cp-tag { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .cp-name { font-size: 18px; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 12px; }
+  .cp-btn { display: inline-block; color: #fff; padding: 6px 14px; border-radius: 5px; font-size: 9px; font-weight: 600; margin-right: 6px; }
+  .cp-btn-ghost { display: inline-block; padding: 6px 14px; border-radius: 5px; font-size: 9px; border: 1px solid; }
+  .cp-line { width: 28px; height: 2px; border-radius: 2px; margin-bottom: 10px; }
+
+  .color-label { padding: 12px 14px; border-top: 1px solid #1f2937; }
+  .color-label h3 { font-size: 11px; font-weight: 700; color: #f3f4f6; margin: 0 0 3px; }
+  .color-label p { font-size: 9px; color: #9ca3af; margin: 0; }
+  .color-swatch { width: 14px; height: 14px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 6px; }
+
+  /* Indigo */
+  .indigo .color-card { border-color: #3730a3; }
+  .indigo .cp-tag { color: #818cf8; }
+  .indigo .cp-line { background: #818cf8; }
+  .indigo .cp-btn { background: #6366f1; }
+  .indigo .cp-btn-ghost { color: #818cf8; border-color: #4338ca; }
+  .indigo .color-label { background: #0f0f1a; }
+
+  /* Cyan / Teal */
+  .cyan .color-card { border-color: #164e63; }
+  .cyan .cp-tag { color: #22d3ee; }
+  .cyan .cp-line { background: #22d3ee; }
+  .cyan .cp-btn { background: #0891b2; }
+  .cyan .cp-btn-ghost { color: #22d3ee; border-color: #0e7490; }
+  .cyan .color-label { background: #061a20; }
+
+  /* Emerald */
+  .emerald .color-card { border-color: #14532d; }
+  .emerald .cp-tag { color: #34d399; }
+  .emerald .cp-line { background: #34d399; }
+  .emerald .cp-btn { background: #059669; }
+  .emerald .cp-btn-ghost { color: #34d399; border-color: #065f46; }
+  .emerald .color-label { background: #051a10; }
+
+  /* Amber / Orange */
+  .amber .color-card { border-color: #78350f; }
+  .amber .cp-tag { color: #fbbf24; }
+  .amber .cp-line { background: #fbbf24; }
+  .amber .cp-btn { background: #d97706; }
+  .amber .cp-btn-ghost { color: #fbbf24; border-color: #92400e; }
+  .amber .color-label { background: #1a1000; }
+
+  .rec-badge {
+    display: inline-block;
+    background: #312e81;
+    color: #a5b4fc;
+    font-size: 8px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    margin-bottom: 4px;
+  }
+</style>
+
+<div class="color-grid">
+
+  <!-- Indigo -->
+  <div class="indigo">
+    <div class="color-card" data-choice="indigo" onclick="toggleSelect(this)">
+      <div class="color-preview">
+        <div class="cp-nav">Pirun<span style="color:#818cf8">.</span></div>
+        <div class="cp-line"></div>
+        <div class="cp-tag">Web Developer</div>
+        <div class="cp-name">Pirun<br>Kongsaeng</div>
+        <div>
+          <div class="cp-btn">View Work</div>
+          <div class="cp-btn-ghost" style="color:#818cf8;border-color:#4338ca;">Contact</div>
+        </div>
+      </div>
+      <div class="color-label">
+        <span class="rec-badge">Current</span>
+        <h3><span class="color-swatch" style="background:#6366f1;"></span>Indigo / Purple</h3>
+        <p>Tech-forward, premium — popular ใน developer portfolios</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cyan -->
+  <div class="cyan">
+    <div class="color-card" data-choice="cyan" onclick="toggleSelect(this)">
+      <div class="color-preview">
+        <div class="cp-nav">Pirun<span style="color:#22d3ee">.</span></div>
+        <div class="cp-line"></div>
+        <div class="cp-tag">Web Developer</div>
+        <div class="cp-name">Pirun<br>Kongsaeng</div>
+        <div>
+          <div class="cp-btn" style="background:#0891b2;">View Work</div>
+          <div class="cp-btn-ghost" style="color:#22d3ee;border-color:#0e7490;">Contact</div>
+        </div>
+      </div>
+      <div class="color-label">
+        <h3><span class="color-swatch" style="background:#22d3ee;"></span>Cyan / Electric Blue</h3>
+        <p>Clean, futuristic — ดูเป็น frontend/UI developer</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emerald -->
+  <div class="emerald">
+    <div class="color-card" data-choice="emerald" onclick="toggleSelect(this)">
+      <div class="color-preview">
+        <div class="cp-nav">Pirun<span style="color:#34d399">.</span></div>
+        <div class="cp-line"></div>
+        <div class="cp-tag">Web Developer</div>
+        <div class="cp-name">Pirun<br>Kongsaeng</div>
+        <div>
+          <div class="cp-btn" style="background:#059669;">View Work</div>
+          <div class="cp-btn-ghost" style="color:#34d399;border-color:#065f46;">Contact</div>
+        </div>
+      </div>
+      <div class="color-label">
+        <h3><span class="color-swatch" style="background:#34d399;"></span>Emerald / Green</h3>
+        <p>Growth, reliability — ใช้กันน้อยกว่าใน dev portfolio</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Amber -->
+  <div class="amber">
+    <div class="color-card" data-choice="amber" onclick="toggleSelect(this)">
+      <div class="color-preview">
+        <div class="cp-nav">Pirun<span style="color:#fbbf24">.</span></div>
+        <div class="cp-line"></div>
+        <div class="cp-tag">Web Developer</div>
+        <div class="cp-name">Pirun<br>Kongsaeng</div>
+        <div>
+          <div class="cp-btn" style="background:#d97706;">View Work</div>
+          <div class="cp-btn-ghost" style="color:#fbbf24;border-color:#92400e;">Contact</div>
+        </div>
+      </div>
+      <div class="color-label">
+        <h3><span class="color-swatch" style="background:#fbbf24;"></span>Amber / Gold</h3>
+        <p>Warm, distinctive — หายากมากใน dev portfolio</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="margin-top:16px;font-size:10px;color:#6b7280;text-align:center;">สีที่เลือกจะใช้กับ: logo dot · button · link · skill tag · section highlight ทั้งเว็บ</p>

@@ -1,57 +1,41 @@
-# Editor & IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*.code-workspace
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Claude Code
-.claude/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Playwright / test artifacts
-.playwright-mcp/
-*.tmp
-*.log
+# testing
+/coverage
 
-# Dev planning docs (specs tracked intentionally)
-# docs/
+# next.js
+/.next/
+/out/
 
-# Dependencies
-node_modules/
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# Build outputs
-dist/
-build/
-*.tgz
+# env files (can opt-in for committing if needed)
+.env*
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# vercel
+.vercel
 
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Logs
-logs
-pids
-*.pid
-*.seed
-
-# Coverage
-coverage/
-
-# Temp
-tmp/
-temp/
+# typescript
+*.tsbuildinfo
+next-env.d.ts
