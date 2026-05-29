@@ -78,7 +78,7 @@ Adding a new project = one object in `all-projects.ts`. No homepage changes need
    - Right: portrait photo (full height, edge-to-edge on mobile below)
    - Amber accent line above eyebrow
 3. **About** — 2-col: short bio paragraph + skills list + Download CV button
-4. **Skills & Technologies** — icon grid (devicons), each links to case study that uses it
+4. **Skills & Technologies** — 1-row infinite marquee loop (pure CSS `@keyframes`), icon + label, no links, no hover, no interaction — purely visual, proof of skills is in case studies below
 5. **Featured Work** — 3 cards, 3-column grid, equal weight
    - Card: cover image, project name, 1-line description, tech tags (amber), "View Case Study →" link
    - Below grid: "See All Projects →" → `/projects`
