@@ -794,23 +794,22 @@ img {
 }
 
 .work-image--logo-bg {
-    background: #0a0a0a;
+    background: #fff;
+    border: 1px solid #ececec;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .work-image--logo-bg .work-logo-img {
-    width: 55%;
+    width: 60%;
     height: auto;
     object-fit: contain;
-    filter: brightness(1.1);
     transition: var(--transition);
 }
 
 .work-item:hover .work-image--logo-bg .work-logo-img {
-    transform: scale(1.08);
-    filter: grayscale(100%) brightness(0.6);
+    transform: scale(1.06);
 }
 
 /* =============================================
@@ -1485,6 +1484,22 @@ img {
     object-fit: cover;
     object-position: center top;
     display: block;
+}
+
+/* Logo-on-white cover variant (brand mark, not a site screenshot) */
+.cs2-cover--logo {
+    background: #fff;
+    border-top: 1px solid #ececec;
+    padding: 5.5rem 2rem;
+}
+.cs2-cover--logo img {
+    width: auto;
+    max-width: 460px;
+    height: auto;
+    max-height: 150px;
+    min-height: 0;
+    object-fit: contain;
+    margin: 0 auto;
 }
 
 /* ---- Body ---- */
