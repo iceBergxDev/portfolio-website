@@ -3,9 +3,26 @@ import Link from 'next/link'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      <div className="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
-        <div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Full-bleed photo — right half on desktop */}
+      <div className="absolute inset-0 lg:left-[50%]">
+        <Image
+          src="/image/IMG_4277.webp"
+          alt="Pirun Kongsaeng"
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          priority
+        />
+        {/* Gradient fade: left edge blends into dark bg on desktop */}
+        <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/60 to-transparent lg:block hidden" />
+        {/* Gradient fade: top + bottom on mobile */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-transparent to-bg/90 lg:hidden" />
+      </div>
+
+      {/* Text content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-32 pt-36">
+        <div className="max-w-lg">
           <div className="w-8 h-0.5 bg-accent mb-6" />
           <p className="text-xs uppercase tracking-widest text-accent mb-4">Web Developer · Bangkok</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text leading-tight mb-6">
@@ -25,16 +42,6 @@ export default function HeroSection() {
           <a href="/Resume-Pirun-Kongsaeng.pdf" download className="text-sm text-text-muted hover:text-accent transition-colors">
             or download my resume (PDF) →
           </a>
-        </div>
-        <div className="relative h-80 lg:h-[520px] rounded-2xl overflow-hidden">
-          <Image
-            src="/image/IMG_4277.webp"
-            alt="Pirun Kongsaeng"
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
         </div>
       </div>
     </section>
