@@ -12,7 +12,7 @@ export const caseStudies: CaseStudy[] = [
     challenge: 'GATAC needed a B2B portal where sales reps could build draft orders for wholesale customers — applying per-customer price lists, managing products, and pushing orders directly into Shopify — all from inside Shopify Admin.',
     solution: 'Engineered a Next.js 14 App Router application embedded inside Shopify Admin via app proxy, authenticating with App Bridge SSO. Built a single-screen draft order engine wired to the Shopify Admin API.',
     tags: ['Shopify', 'Next.js', 'App Bridge', 'Admin API'],
-    coverImage: '/image/projects/gatac-app-screenshot.png',
+    coverImage: '/image/projects/gatac-logo.png',
     hasCaseStudy: true,
     features: [
       {
