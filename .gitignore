@@ -13,8 +13,8 @@
 *.tmp
 *.log
 
-# Dev planning docs
-docs/
+# Dev planning docs (specs tracked intentionally)
+# docs/
 
 # Dependencies
 node_modules/
