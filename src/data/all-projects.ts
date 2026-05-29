@@ -1,11 +1,11 @@
 import { Project } from '@/types/project'
 
 export const allProjects: Project[] = [
-  { slug: 'gatac', title: 'GATAC Aviation', shortDescription: 'Shopify theme & B2B distributor portal.', tags: ['Shopify', 'JavaScript', 'API'], coverImage: '/image/projects/gatac-hero.jpg', hasCaseStudy: true },
-  { slug: 'foley', title: 'Foley & Associates', shortDescription: 'Law firm WordPress site with custom PHP.', tags: ['WordPress', 'PHP', 'SEO'], coverImage: '/image/projects/foley-hero.jpg', hasCaseStudy: true },
-  { slug: 'aj-flooring', title: 'AJ Flooring', shortDescription: 'WooCommerce store with GA4 tracking.', tags: ['WordPress', 'WooCommerce', 'GA4'], coverImage: '/image/projects/ajflooring-hero.jpg', hasCaseStudy: true },
-  { slug: 'asl', title: 'ASL', shortDescription: 'B2B WooCommerce store with bulk ordering.', tags: ['WordPress', 'WooCommerce', 'PHP'], coverImage: '/image/projects/asl-hero.jpg', hasCaseStudy: true },
-  { slug: 'grind', title: 'Grind', shortDescription: 'Coffee brand WordPress site with booking.', tags: ['WordPress', 'JavaScript'], coverImage: '/image/projects/grind-hero.jpg', hasCaseStudy: true },
-  { slug: 'birdhouse', title: 'Birdhouse', shortDescription: 'Property management WordPress site.', tags: ['WordPress', 'CSS'], coverImage: '/image/projects/birdhouse-hero.jpg', hasCaseStudy: true },
-  { slug: 'newstart', title: 'Newstart', shortDescription: 'Real estate WordPress site with SEO.', tags: ['WordPress', 'SEO', 'GA4'], coverImage: '/image/projects/newstart-hero.jpg', hasCaseStudy: true },
+  { slug: 'gatac', title: 'GATAC — Shopify & B2B Portal', shortDescription: 'Next.js app embedded in Shopify Admin with draft order engine.', tags: ['Shopify', 'Next.js', 'App Bridge'], coverImage: '/image/projects/gatac-screenshot.png', hasCaseStudy: true },
+  { slug: 'foley', title: 'Foley Pre-Start', shortDescription: 'Digital fleet inspection system built as a custom WordPress plugin.', tags: ['WordPress', 'PHP 8', 'MySQL'], coverImage: '/image/projects/foley-hero.jpg', hasCaseStudy: true },
+  { slug: 'aj-flooring', title: 'AJ Flooring', shortDescription: '2025 Award-finalist WordPress site with custom Elementor components.', tags: ['WordPress', 'Elementor', 'SEO'], coverImage: '/image/projects/ajflooring-hero-new.jpg', hasCaseStudy: true },
+  { slug: 'asl', title: 'Australian Synthetic Lawns', shortDescription: 'E-commerce & lead gen site with segmented retail/trade journeys.', tags: ['WordPress', 'Divi', 'WooCommerce'], coverImage: '/image/projects/asl-hero-new.jpg', hasCaseStudy: true },
+  { slug: 'grind', title: 'Grind @ The Rise', shortDescription: 'Specialty café website with pixel-perfect brand translation.', tags: ['WordPress', 'Elementor', 'CDN'], coverImage: '/image/projects/grind-hero.jpg', hasCaseStudy: true },
+  { slug: 'birdhouse', title: 'Birdhouse Media', shortDescription: 'Video production agency site with CPT architecture and video team cards.', tags: ['WordPress', 'Custom Post Types', 'Elementor'], coverImage: '/image/projects/birdhouse-hero.jpg', hasCaseStudy: true },
+  { slug: 'newstart', title: 'Newstart Homes', shortDescription: 'Custom home builder site with filterable house-design catalogue.', tags: ['WordPress', 'Custom Post Types', 'NitroPack'], coverImage: '/image/projects/newstart-hero.jpg', hasCaseStudy: true },
 ]
