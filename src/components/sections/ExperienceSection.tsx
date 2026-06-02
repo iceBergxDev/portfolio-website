@@ -14,12 +14,10 @@ const experiences = [
     current: true,
     highlights: [
       'Build and maintain fast, mobile-responsive WordPress websites for Australian, UK, and Thai clients',
-      'Developed a Shopify-embedded Next.js B2B portal with App Bridge SSO and draft order engine wired to the Shopify Admin API',
+      'Developed a Shopify-embedded Next.js B2B portal with App Bridge SSO and draft order engine connected to the Shopify Admin API',
       'Set up complete analytics tracking (GTM, GA4, Google Ads) and technical SEO (robots.txt, schema markup, llms.txt)',
-      'Customise WordPress themes and plugins to match client requirements',
-      'Create high-converting landing pages with designers and marketers',
-      'Maintain site security, performance, and updates',
-      'Use AI tools to speed up development and debugging',
+      'Build custom Elementor templates, ACF field groups, and PHP snippets to match each client\'s layout and workflow needs',
+      'Build landing pages from Figma designs in collaboration with designers and marketers — from markup to performance tuning',
     ],
     achievement: 'Set up unified analytics tracking across multiple client sites; optimised key pages to under 2-second load times',
     stack: [
