@@ -1,7 +1,7 @@
 import { Project } from '@/types/project'
 
 export const allProjects: Project[] = [
-  { slug: 'gatac', title: 'GATAC — Shopify & B2B Portal', shortDescription: 'Next.js app embedded in Shopify Admin — draft order engine with App Bridge SSO for wholesale sales reps.', tags: ['Shopify', 'Next.js', 'App Bridge', 'Admin API'], coverImage: '/images/projects/gatac/logo.png', coverStyle: 'logo', hasCaseStudy: true },
+  { slug: 'gatac', title: 'GATAC — Shopify & B2B Portal', shortDescription: 'Next.js app embedded in Shopify Admin for B2B wholesale ordering — live for US retailers, EU and UK builds in progress.', tags: ['Shopify', 'Next.js', 'App Bridge', 'Admin API'], coverImage: '/images/projects/gatac/logo.png', coverStyle: 'logo', hasCaseStudy: true },
   { slug: 'foley', title: 'Foley Pre-Start', shortDescription: 'Custom WordPress plugin replacing paper fleet checklists for 41 drivers across 8 vehicle types — conditional inspections, automated fault routing.', tags: ['WordPress', 'PHP 8', 'MySQL', 'Plugin Dev'], coverImage: '/images/projects/foley/hero.jpg', hasCaseStudy: true },
   { slug: 'aj-flooring', title: 'AJ Flooring', shortDescription: 'WordPress site for a 40-year flooring specialist — custom Elementor build, Core Web Vitals optimised, 2025 Business Award finalist.', tags: ['WordPress', 'Elementor', 'NitroPack', 'SEO'], coverImage: '/images/projects/aj-flooring/hero.jpg', hasCaseStudy: true },
   { slug: 'asl', title: 'Australian Synthetic Lawns', shortDescription: 'Divi child theme with separate journeys for retail and trade buyers, WooCommerce catalogue, and multi-step quote forms.', tags: ['WordPress', 'Divi', 'WooCommerce'], coverImage: '/images/projects/asl/hero.jpg', hasCaseStudy: true },
