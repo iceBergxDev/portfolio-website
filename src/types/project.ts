@@ -4,6 +4,7 @@ export interface Project {
   shortDescription: string
   tags: string[]
   coverImage: string
+  coverStyle?: 'cover' | 'logo'
   url?: string
   hasCaseStudy: boolean
 }
