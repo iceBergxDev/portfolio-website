@@ -33,15 +33,17 @@ export default function HeroSection() {
           <p className="text-text-muted text-lg mb-8 max-w-md leading-relaxed">
             I build fast, SEO-strong websites for clients in Thailand, Australia, and the UK.
           </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link href="/#works" className="px-6 py-3 bg-accent text-bg font-semibold rounded-lg hover:bg-accent-hover transition-colors">
-              View Work
-            </Link>
-            <Link href="/#experience" className="px-6 py-3 border border-border text-text-muted hover:text-text hover:border-accent/50 rounded-lg transition-colors">
-              Experience
-            </Link>
-            <Link href="/#contact" className="px-6 py-3 border border-border text-text-muted hover:text-text hover:border-accent/50 rounded-lg transition-colors">
-              Contact
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/#works" className="px-6 py-3 bg-accent text-bg font-semibold rounded-lg hover:bg-accent-hover transition-colors">
+                View Work
+              </Link>
+              <Link href="/#contact" className="px-6 py-3 border border-border text-text-muted hover:text-text hover:border-accent/50 rounded-lg transition-colors">
+                Contact
+              </Link>
+            </div>
+            <Link href="/#experience" className="text-sm text-text-muted hover:text-text underline underline-offset-4 transition-colors w-fit">
+              View Experience ↓
             </Link>
           </div>
         </div>
