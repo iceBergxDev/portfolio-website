@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import PageTransition from '@/components/PageTransition'
+import PageTransition from '@/components/layout/PageTransition'
 import { caseStudies, getCaseStudyBySlug } from '@/data/case-studies'
+import { getTagLogo } from '@/lib/tech-logos'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -30,7 +31,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <PageTransition>
-      <div className="pt-28 pb-24">
+      <div className="pt-20 pb-20 md:pt-28 md:pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <Link href="/projects" className="text-sm text-text-muted hover:text-accent transition-colors mb-8 inline-block">
             ← All Projects
@@ -38,11 +39,17 @@ export default async function CaseStudyPage({ params }: Props) {
 
           <div className="mb-12">
             <div className="flex flex-wrap gap-2 mb-4">
-              {cs.tags.map((tag) => (
-                <span key={tag} className="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">{tag}</span>
-              ))}
+              {cs.tags.map((tag) => {
+                const logo = getTagLogo(tag)
+                return (
+                  <span key={tag} className="inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">
+                    {logo && <Image src={logo} alt={tag} width={12} height={12} className="shrink-0" unoptimized />}
+                    {tag}
+                  </span>
+                )
+              })}
             </div>
-            <h1 className="text-4xl font-bold tracking-tight mb-4">{cs.title}</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">{cs.title}</h1>
             <p className="text-text-muted text-lg mb-6">{cs.shortDescription}</p>
             <div className="flex flex-wrap gap-6 text-sm text-text-muted">
               <span><span className="text-text font-medium">Client:</span> {cs.client}</span>
@@ -52,12 +59,12 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="relative h-72 md:h-96 rounded-xl overflow-hidden mb-16 bg-surface">
+          <div className={`relative h-72 md:h-96 rounded-xl overflow-hidden mb-16 flex items-center justify-center ${cs.coverStyle === 'logo' ? 'bg-white p-12' : 'bg-surface'}`}>
             <Image
               src={cs.coverImage}
               alt={cs.title}
               fill
-              className="object-cover"
+              className={cs.coverStyle === 'logo' ? 'object-contain p-12' : 'object-cover'}
               sizes="(max-width: 1024px) 100vw, 896px"
               priority
             />

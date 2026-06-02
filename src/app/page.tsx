@@ -1,9 +1,10 @@
-import PageTransition from '@/components/PageTransition'
-import HeroSection from '@/components/HeroSection'
-import AboutSection from '@/components/AboutSection'
-import SkillsMarquee from '@/components/SkillsMarquee'
-import FeaturedWorkSection from '@/components/FeaturedWorkSection'
-import ContactSection from '@/components/ContactSection'
+import PageTransition from '@/components/layout/PageTransition'
+import HeroSection from '@/components/sections/HeroSection'
+import AboutSection from '@/components/sections/AboutSection'
+import SkillsMarquee from '@/components/sections/SkillsMarquee'
+import ExperienceSection from '@/components/sections/ExperienceSection'
+import FeaturedWorkSection from '@/components/sections/FeaturedWorkSection'
+import ContactSection from '@/components/sections/ContactSection'
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <SkillsMarquee />
+      <ExperienceSection />
       <FeaturedWorkSection />
       <ContactSection />
     </PageTransition>
