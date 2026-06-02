@@ -5,7 +5,7 @@ const SVG_BASE = 'https://thesvg.org/icons'
 
 const socials = [
   { label: 'GitHub',   slug: 'github',   href: 'https://github.com/iceBergxDev',                        external: true },
-  { label: 'LinkedIn', slug: 'linkedin', href: 'https://www.linkedin.com/in/pirun-kongsaeng-417b2a1b0/', external: true },
+  { label: 'LinkedIn', slug: 'linkedin', href: 'https://www.linkedin.com/in/icebergx/', external: true },
   { label: 'Gmail',    slug: 'gmail',    href: 'mailto:pirun.ks@gmail.com',                              external: false },
 ]
 

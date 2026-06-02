@@ -14,7 +14,7 @@ const contacts = [
   {
     label: 'LinkedIn',
     value: 'Pirun Kongsaeng',
-    href: 'https://www.linkedin.com/in/pirun-kongsaeng-417b2a1b0/',
+    href: 'https://www.linkedin.com/in/icebergx/',
     slug: 'linkedin',
     external: true,
   },
