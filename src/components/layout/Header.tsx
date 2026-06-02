@@ -37,8 +37,8 @@ export default function Header() {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             <Link href="/#works" className="text-sm text-text-muted hover:text-text transition-colors">Work</Link>
-            <Link href="/projects" className="text-sm text-text-muted hover:text-text transition-colors">Projects</Link>
             <Link href="/#about" className="text-sm text-text-muted hover:text-text transition-colors">About</Link>
+            <Link href="/projects" className="text-sm text-text-muted hover:text-text transition-colors">Projects</Link>
             <Link href="/#contact" className="text-sm text-text-muted hover:text-text transition-colors">Contact</Link>
           </nav>
 
@@ -64,8 +64,8 @@ export default function Header() {
         {/* Panel */}
         <nav className={`absolute top-[61px] left-0 right-0 bg-bg border-b border-border px-6 py-8 flex flex-col gap-6 transition-transform duration-300 ${menuOpen ? 'translate-y-0' : '-translate-y-4'}`}>
           <Link href="/#works" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">Work</Link>
-          <Link href="/projects" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">Projects</Link>
           <Link href="/#about" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">About</Link>
+          <Link href="/projects" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">Projects</Link>
           <Link href="/#contact" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">Contact</Link>
         </nav>
       </div>
