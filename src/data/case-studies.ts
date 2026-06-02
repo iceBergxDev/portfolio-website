@@ -10,7 +10,7 @@ export const caseStudies: CaseStudy[] = [
     country: 'Australia',
     shortDescription: 'Shopify theme & embedded Next.js B2B distributor portal with draft order engine.',
     challenge: 'GATAC needed a B2B portal where sales reps could build draft orders for wholesale customers — applying per-customer price lists, managing products, and pushing orders directly into Shopify — all from inside Shopify Admin.',
-    solution: 'Engineered a Next.js 14 App Router application embedded inside Shopify Admin via app proxy, authenticating with App Bridge SSO. Built a single-screen draft order engine wired to the Shopify Admin API. Used Claude AI throughout the build for API research, edge-case debugging, and code review — keeping development velocity high on a tight scope.',
+    solution: 'Engineered a Next.js 14 App Router application embedded inside Shopify Admin via app proxy, authenticating with App Bridge SSO. Built a single-screen draft order engine wired to the Shopify Admin API.',
     tags: ['Shopify', 'Next.js', 'App Bridge', 'Admin API'],
     coverImage: '/images/projects/gatac/logo.png',
     coverStyle: 'logo',
@@ -48,8 +48,8 @@ export const caseStudies: CaseStudy[] = [
         image: '/images/projects/foley/feat-fleet.jpg',
       },
       {
-        title: 'Real-Time Fault Routing',
-        description: 'Built fault-reporting logic that flags issues in real time, classifies severity, and routes them to the right manager dashboard — backed by Action Scheduler for reliable async processing.',
+        title: 'Automated Fault Routing',
+        description: 'Built fault-reporting logic that flags issues, classifies severity, and routes them to the right manager dashboard — backed by Action Scheduler for reliable async processing.',
         image: '/images/projects/foley/feat-services.jpg',
       },
       {
@@ -67,7 +67,7 @@ export const caseStudies: CaseStudy[] = [
     role: 'WordPress Developer & Designer',
     country: 'Australia',
     shortDescription: '2025 Business Award-finalist site with custom Elementor components, trust-driven conversion architecture, and Core Web Vitals optimisation.',
-    challenge: 'AJ Flooring needed a website that established credibility (40+ years, ATFA certification, Bona partner), converted researchers into enquiries, and performed well enough in Core Web Vitals to rank and win awards.',
+    challenge: 'AJ Flooring needed a website that established credibility (40+ years, ATFA certification, Bona partner), converted researchers into enquiries, and performed well on Core Web Vitals for search visibility.',
     solution: 'Built a custom Elementor-powered WordPress site with a reusable service carousel, trust-signal hierarchy above the fold, and NitroPack-tuned performance — earning a 2025 Business Award finalist nomination.',
     tags: ['WordPress', 'Elementor', 'NitroPack', 'SEO'],
     coverImage: '/images/projects/aj-flooring/hero.jpg',
@@ -84,8 +84,8 @@ export const caseStudies: CaseStudy[] = [
         image: '/images/projects/aj-flooring/services.jpg',
       },
       {
-        title: 'Award-Grade Build Quality',
-        description: 'Tuned the site with NitroPack caching and image optimisation for strong Core Web Vitals — engineering quality that helped earn a 2025 Business Award finalist nomination.',
+        title: 'Performance Optimisation',
+        description: 'Tuned the site with NitroPack caching and image optimisation for strong Core Web Vitals scores — the site was built the same year AJ Flooring received a 2025 Business Award finalist nomination.',
         image: '/images/projects/aj-flooring/prod-awards.jpg',
       },
     ],
@@ -137,7 +137,7 @@ export const caseStudies: CaseStudy[] = [
     features: [
       {
         title: 'Pixel-Perfect Brand Translation',
-        description: 'Translated a bold café brand into a high-impact Elementor build — oversized display type, paper-texture palette, and full-bleed photography — proving design fidelity is an engineering discipline.',
+        description: 'Translated a bold café brand into a high-impact Elementor build — oversized display type, paper-texture palette, and full-bleed photography matched to the client\'s visual identity.',
         image: '/images/projects/grind/features.jpg',
       },
       {
@@ -147,7 +147,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: 'Fast on Every Device',
-        description: 'Configured SiteGround CDN and caching for fast load times across devices — performance engineering that keeps a media-heavy, photo-rich site responsive for every visitor.',
+        description: 'Configured SiteGround CDN and caching for fast load times across devices — keeps a media-heavy, photo-rich site responsive on mobile and desktop.',
         image: '/images/projects/grind/feat-about.jpg',
       },
     ],
