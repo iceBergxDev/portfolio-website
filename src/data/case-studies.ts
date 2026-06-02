@@ -35,16 +35,16 @@ export const caseStudies: CaseStudy[] = [
     year: '2024–2025',
     role: 'WordPress Plugin Developer',
     country: 'Australia',
-    shortDescription: 'Custom WordPress plugin replacing paper pre-start checklists — driver portals, conditional inspections by vehicle type, automated fault routing, and a self-hosted audit trail.',
-    challenge: 'Foley Logistics ran paper pre-start checklists for their fleet. They needed a digital replacement with driver portals, vehicle-specific inspection forms, photo capture for faults, and a self-hosted audit trail for compliance.',
-    solution: 'Built the Foley Pre-Start plugin in PHP 8 from the ground up — a full inspection system on WordPress with conditional checklists, automated fault routing to manager dashboards, and a MySQL audit trail.',
+    shortDescription: 'Custom WordPress plugin replacing paper pre-start checklists for 41 drivers across 8 vehicle types — conditional inspections, automated fault routing, and a self-hosted audit trail.',
+    challenge: 'Foley Logistics ran paper pre-start checklists across 41 drivers and 8 different vehicle types. Each vehicle type had different inspection requirements, and there was no audit trail if something went wrong.',
+    solution: 'Built the Foley Pre-Start plugin in PHP 8 from the ground up — a full inspection system on WordPress with conditional checklists per vehicle type, automated fault routing to manager dashboards, and a MySQL audit trail.',
     tags: ['WordPress', 'PHP 8', 'MySQL', 'Plugin Dev'],
     coverImage: '/images/projects/foley/hero.jpg',
     hasCaseStudy: true,
     features: [
       {
         title: 'Custom WordPress Plugin from Scratch',
-        description: 'Wrote the plugin in PHP 8, built entirely within WordPress. Drivers get their own portal, the inspection form adapts based on vehicle type, and faults can be photo-documented on the spot.',
+        description: 'Wrote the plugin in PHP 8, built entirely within WordPress. Each of the 8 vehicle types has its own conditional inspection form — drivers see only the checks relevant to what they\'re driving.',
         image: '/images/projects/foley/feat-fleet.jpg',
       },
       {
@@ -54,7 +54,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: 'Self-Hosted Audit Trail',
-        description: 'Every inspection is timestamped and stored in MySQL on the client\'s own server — no third-party SaaS. The client owns the data and controls access, which matters for compliance.',
+        description: 'Every inspection is timestamped and stored in MySQL on the client\'s own server. 41 drivers generating daily records — all owned by the client, no third-party dependency, no subscription.',
         image: '/images/projects/foley/feat-about.jpg',
       },
     ],
