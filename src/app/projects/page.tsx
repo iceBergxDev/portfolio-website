@@ -24,6 +24,7 @@ export default function ProjectsPage() {
                 key={project.slug}
                 project={project}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                headingLevel="h2"
               />
             ))}
           </div>

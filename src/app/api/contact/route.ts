@@ -12,6 +12,9 @@ export async function POST(request: NextRequest) {
   if (!name.trim() || !email.trim() || !message.trim()) {
     return NextResponse.json({ error: 'All fields required' }, { status: 400 })
   }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: 'Invalid email' }, { status: 400 })
+  }
 
   const { error } = await resend.emails.send({
     from: 'Portfolio <onboarding@resend.dev>',
