@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 
@@ -9,17 +9,17 @@ const SVG_BASE = 'https://thesvg.org/icons'
 const experiences = [
   {
     company: 'Entelech Digital',
-    role: 'Web Developer (WordPress & Frontend)',
+    role: 'Senior Web Developer',
     period: 'February 2026 – Present',
     current: true,
     highlights: [
-      'Build and maintain fast, mobile-responsive WordPress websites for Australian, UK, and Thai clients',
-      'Developed a Shopify-embedded Next.js B2B portal with App Bridge SSO and draft order engine connected to the Shopify Admin API',
-      'Set up complete analytics tracking (GTM, GA4, Google Ads) and technical SEO (robots.txt, schema markup, llms.txt)',
-      'Build custom Elementor templates, ACF field groups, and PHP snippets to match each client\'s layout and workflow needs',
-      'Build landing pages from Figma designs in collaboration with designers and marketers — from markup to performance tuning',
+      'Build and maintain fast, mobile-responsive WordPress sites for clients in Australia, UK, and Thailand — from Elementor builds to custom PHP plugins from scratch',
+      'Shipped a Shopify-embedded Next.js B2B portal for a US wholesale distributor — App Bridge SSO, draft order engine, and live Shopify Admin API integration',
+      'Set up complete analytics stacks (GTM, GA4, Google Ads, Search Console) and technical SEO (schema markup, robots.txt, llms.txt) across all client sites',
+      'Build custom Elementor templates and ACF field groups to match each client\'s workflow — including a from-scratch PHP 8 plugin (Foley Pre-Start fleet inspection system) for 41 drivers',
+      'Deliver landing pages from Figma designs — responsive markup, image optimisation, and sub-2-second load times via NitroPack and SiteGround CDN',
     ],
-    achievement: 'Set up unified analytics tracking across multiple client sites; optimised key pages to under 2-second load times',
+    achievement: 'Shipped a full-stack Next.js + Shopify app to production for US retailers; brought key pages under 2s across AU/TH/UK client accounts',
     stack: [
       { name: 'WordPress', slug: 'wordpress' },
       { name: 'Shopify', slug: 'shopify' },
@@ -36,14 +36,12 @@ const experiences = [
     role: 'WordPress Developer (WordPress & Frontend)',
     period: 'December 2024 – July 2025',
     highlights: [
-      'Built SEO-friendly WordPress websites with mobile-first design and fast load times',
-      'Created WooCommerce stores with Zort API integration for automatic inventory updates',
-      'Customised WordPress themes and built custom plugins',
-      'Set up Google Tag Manager and Search Console for tracking and SEO monitoring',
+      'Built WordPress sites for retail and service clients — WooCommerce stores, custom themes, and Zort API integration for automatic inventory sync',
+      'Set up Google Tag Manager, Search Console, and GA4 for campaign tracking and SEO monitoring',
       'Integrated Brevo email marketing for automated lead follow-up',
       'Built multilingual sites (WPML, Polylang) for international clients',
     ],
-    achievement: 'Launched 10+ fast, mobile-optimised WordPress websites; increased client lead generation through improved UX and email automation; reduced manual order processing via WooCommerce–Zort API automation',
+    achievement: 'Launched 10+ WordPress websites across retail and service clients; automated order processing via WooCommerce–Zort API',
     stack: [
       { name: 'WordPress', slug: 'wordpress' },
       { name: 'WooCommerce', slug: 'woocommerce' },
@@ -59,12 +57,11 @@ const experiences = [
     role: 'UX/UI Design / WordPress Developer',
     period: 'May 2024 – November 2024',
     highlights: [
-      'Designed website layouts and user flows focused on conversions (sign-ups, purchases, contact)',
-      'Created clean, intuitive interfaces for better user experience',
-      'Built responsive WordPress sites using Elementor Pro',
-      'Worked with clients to translate goals into functional websites',
+      'Designed page layouts and user flows in Figma before building — sign-up flows, purchase paths, and contact forms',
+      'Built responsive WordPress sites using Elementor Pro, handling revisions directly with clients',
+      'Translated client briefs into functional builds across service, retail, and hospitality sectors',
     ],
-    achievement: 'Redesigned 8+ client websites, improving usability and engagement',
+    achievement: 'Redesigned 8+ client websites across Thailand — handled Figma to Elementor from brief to launch',
     stack: [
       { name: 'WordPress', slug: 'wordpress' },
       { name: 'Elementor', slug: 'elementor' },
@@ -107,9 +104,9 @@ const cardVariants = {
 }
 
 const bulletVariants = {
-  hidden: { opacity: 0 },
+  hidden: { x: -6 },
   visible: (i: number) => ({
-    opacity: 1,
+    x: 0,
     transition: { delay: i * 0.06, duration: 0.3 },
   }),
 }
@@ -117,6 +114,7 @@ const bulletVariants = {
 function ExperienceCard({ job }: { job: typeof experiences[0] }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <motion.div
@@ -137,11 +135,13 @@ function ExperienceCard({ job }: { job: typeof experiences[0] }) {
         {job.current ? (
           <>
             <span className="w-3 h-3 rounded-full bg-accent block" />
-            <motion.span
-              animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
-              className="absolute w-3 h-3 rounded-full bg-accent"
-            />
+            {!shouldReduceMotion && (
+              <motion.span
+                animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+                className="absolute w-3 h-3 rounded-full bg-accent"
+              />
+            )}
           </>
         ) : (
           <span className="w-2.5 h-2.5 rounded-full bg-border border-2 border-accent/40 block" />
@@ -190,7 +190,7 @@ function ExperienceCard({ job }: { job: typeof experiences[0] }) {
                 alt={tech.name}
                 width={20}
                 height={20}
-                className="opacity-60 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-200"
+                className="opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                 unoptimized
               />
             </div>
@@ -206,7 +206,7 @@ function ExperienceCard({ job }: { job: typeof experiences[0] }) {
           transition={{ delay: 0.4, duration: 0.4 }}
           className="bg-accent/5 border border-accent/20 rounded pl-3 py-1.5"
         >
-          <p className="text-xs text-text-muted/80 italic">{job.achievement}</p>
+          <p className="text-sm text-text-muted">{job.achievement}</p>
         </motion.div>
       )}
     </motion.div>

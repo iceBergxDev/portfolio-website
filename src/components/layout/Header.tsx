@@ -13,11 +13,17 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll + Esc to close
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   const close = () => setMenuOpen(false)
 
@@ -36,17 +42,18 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/#works" className="text-sm text-text-muted hover:text-text transition-colors">Work</Link>
-            <Link href="/#about" className="text-sm text-text-muted hover:text-text transition-colors">About</Link>
-            <Link href="/projects" className="text-sm text-text-muted hover:text-text transition-colors">Projects</Link>
-            <Link href="/#contact" className="text-sm text-text-muted hover:text-text transition-colors">Contact</Link>
+            <Link href="/#works" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Work</Link>
+            <Link href="/#about" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">About</Link>
+            <Link href="/#experience" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Experience</Link>
+            <Link href="/projects" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Projects</Link>
+            <Link href="/#contact" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Contact</Link>
           </nav>
 
           {/* Hamburger button */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+            className="md:hidden flex flex-col justify-center items-center w-11 h-11 -m-1.5 gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
           >
             <span className={`block w-5 h-0.5 bg-text transition-transform duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
             <span className={`block w-5 h-0.5 bg-text transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
@@ -63,10 +70,11 @@ export default function Header() {
         <div className="absolute inset-0 bg-bg/60 backdrop-blur-sm" onClick={close} />
         {/* Panel */}
         <nav className={`absolute top-[61px] left-0 right-0 bg-bg border-b border-border px-6 py-8 flex flex-col gap-6 transition-transform duration-300 ${menuOpen ? 'translate-y-0' : '-translate-y-4'}`}>
-          <Link href="/#works" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">Work</Link>
-          <Link href="/#about" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">About</Link>
-          <Link href="/projects" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">Projects</Link>
-          <Link href="/#contact" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors">Contact</Link>
+          <Link href="/#works" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Work</Link>
+          <Link href="/#about" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">About</Link>
+          <Link href="/#experience" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Experience</Link>
+          <Link href="/projects" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Projects</Link>
+          <Link href="/#contact" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Contact</Link>
         </nav>
       </div>
     </>

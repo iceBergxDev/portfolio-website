@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { MotionConfig } from 'framer-motion'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import CommandPalette from '@/components/ui/CommandPalette'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: 'Pirun Kongsaeng | Web Developer',
-  description: 'Web Developer with 5+ years building fast, SEO-optimised WordPress and frontend sites for clients in Thailand, Australia, and the UK.',
+  description: 'Web Developer with 4+ years building fast, SEO-optimised WordPress and frontend sites for clients in Thailand, Australia, and the UK.',
   openGraph: {
     title: 'Pirun Kongsaeng | Web Developer',
     description: 'Web Developer — WordPress, WooCommerce, React, Next.js. Based in Bangkok.',
@@ -21,9 +23,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
 <body className="bg-bg text-text">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <MotionConfig reducedMotion="user">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <CommandPalette />
+        </MotionConfig>
       </body>
     </html>
   )

@@ -17,7 +17,7 @@ export interface CaseStudyFeature {
 
 export interface CaseStudy extends Project {
   client: string
-  year: string
+  year?: string
   role: string
   country: string
   challenge: string

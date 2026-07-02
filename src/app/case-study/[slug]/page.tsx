@@ -5,6 +5,8 @@ import Link from 'next/link'
 import PageTransition from '@/components/layout/PageTransition'
 import { caseStudies, getCaseStudyBySlug } from '@/data/case-studies'
 import { getTagLogo } from '@/lib/tech-logos'
+import StatCounter from '@/components/ui/StatCounter'
+import ScrollProgressBar from '@/components/ui/ScrollProgressBar'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -29,8 +31,12 @@ export default async function CaseStudyPage({ params }: Props) {
   const cs = getCaseStudyBySlug(slug)
   if (!cs) notFound()
 
+  const currentIndex = caseStudies.findIndex((c) => c.slug === slug)
+  const nextCaseStudy = caseStudies[(currentIndex + 1) % caseStudies.length]
+
   return (
     <PageTransition>
+      <ScrollProgressBar />
       <div className="pt-20 pb-20 md:pt-28 md:pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <Link href="/projects" className="text-sm text-text-muted hover:text-accent transition-colors mb-8 inline-block">
@@ -53,13 +59,16 @@ export default async function CaseStudyPage({ params }: Props) {
             <p className="text-text-muted text-lg mb-6">{cs.shortDescription}</p>
             <div className="flex flex-wrap gap-6 text-sm text-text-muted">
               <span><span className="text-text font-medium">Client:</span> {cs.client}</span>
-              <span><span className="text-text font-medium">Year:</span> {cs.year}</span>
+              {cs.year && <span><span className="text-text font-medium">Year:</span> {cs.year}</span>}
               <span><span className="text-text font-medium">Role:</span> {cs.role}</span>
               <span><span className="text-text font-medium">Country:</span> {cs.country}</span>
             </div>
           </div>
 
-          <div className={`relative h-72 md:h-96 rounded-xl overflow-hidden mb-16 flex items-center justify-center ${cs.coverStyle === 'logo' ? 'bg-white p-12' : 'bg-surface'}`}>
+          <div
+            className={`relative h-72 md:h-96 rounded-xl overflow-hidden mb-16 flex items-center justify-center ${cs.coverStyle === 'logo' ? 'bg-white p-12' : 'bg-surface'}`}
+            style={{ viewTransitionName: `project-cover-${cs.slug}` }}
+          >
             <Image
               src={cs.coverImage}
               alt={cs.title}
@@ -110,7 +119,9 @@ export default async function CaseStudyPage({ params }: Props) {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
               {cs.stats.map((stat) => (
                 <div key={stat.label} className="bg-surface-2 rounded-xl p-5 border border-border text-center">
-                  <div className="text-2xl font-bold text-accent mb-1">{stat.value}</div>
+                  <div className="text-2xl font-bold text-accent mb-1">
+                    <StatCounter value={stat.value} />
+                  </div>
                   <div className="text-xs text-text-muted">{stat.label}</div>
                 </div>
               ))}
@@ -123,6 +134,19 @@ export default async function CaseStudyPage({ params }: Props) {
               View Live Site →
             </a>
           )}
+
+          <div className="mt-16 pt-8 border-t border-border">
+            <Link
+              href={`/case-study/${nextCaseStudy.slug}`}
+              className="group flex items-center justify-between gap-4 bg-surface-2 rounded-xl p-6 border border-border hover:border-accent transition-colors"
+            >
+              <div>
+                <div className="text-xs uppercase tracking-widest text-accent mb-2">Next Case Study</div>
+                <div className="font-bold text-text group-hover:text-accent transition-colors">{nextCaseStudy.title}</div>
+              </div>
+              <span className="text-accent text-xl shrink-0 group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </PageTransition>
