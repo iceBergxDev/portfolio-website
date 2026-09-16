@@ -31,15 +31,15 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-24 border-t border-border">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold tracking-tight mb-4">Get In Touch</h2>
+        <h2 className="text-3xl font-bold tracking-tight mb-4">Let&apos;s talk</h2>
         <p className="text-text-muted mb-12 max-w-md">
-          Available for freelance projects and full-time roles. Based in Bangkok — working remotely worldwide.
+          I&apos;m open to senior web development roles and selected freelance work. I&apos;m based in Bangkok and can work remotely.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Direct contact channels */}
           <div>
-            <h3 className="text-sm font-semibold text-text mb-6">Direct Contact</h3>
+            <h3 className="text-sm font-semibold text-text mb-6">Direct contact</h3>
             <div className="space-y-5">
               {contacts.map(({ label, value, href, slug, external }) => (
                 <a
@@ -69,7 +69,7 @@ export default function ContactSection() {
 
           {/* Contact form */}
           <div>
-            <h3 className="text-sm font-semibold text-text mb-6">Send a Message</h3>
+            <h3 className="text-sm font-semibold text-text mb-6">Send a message</h3>
             <ContactForm />
           </div>
         </div>

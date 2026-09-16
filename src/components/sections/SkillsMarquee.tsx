@@ -15,12 +15,11 @@ const skills = [
   { name: 'CSS3',        slug: 'css3' },
   { name: 'Tailwind',    slug: 'tailwind-css' },
   { name: 'MySQL',       slug: 'mysql' },
+  { name: 'PostgreSQL',  slug: 'postgresql' },
   { name: 'Git',         slug: 'git' },
   { name: 'GitHub',      slug: 'github',       invert: true },
   { name: 'Figma',       slug: 'figma' },
   { name: 'Elementor',   slug: 'elementor' },
-  { name: 'Claude',      slug: 'claude' },
-  { name: 'Cursor',      slug: 'cursor' },
 ]
 
 const doubled = [...skills, ...skills]
@@ -29,7 +28,7 @@ export default function SkillsMarquee() {
   return (
     <section className="py-16 border-y border-border overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 mb-8">
-        <p className="text-xs uppercase tracking-widest text-accent">Skills & Technologies</p>
+        <p className="text-xs uppercase tracking-widest text-accent">Skills and tools</p>
       </div>
       <div className="marquee-container">
         <div className="flex animate-marquee gap-12 w-max">

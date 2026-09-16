@@ -23,6 +23,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(.project-cover-morph) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -36,6 +45,11 @@ body {
 .marquee-container:hover .animate-marquee { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee { animation: none; }
+
+  ::view-transition-group(.project-cover-morph) {
+    animation-delay: 0ms;
+    animation-duration: 0ms;
+  }
 }
 
 @keyframes caret-blink {

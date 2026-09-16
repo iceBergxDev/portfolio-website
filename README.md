@@ -8,7 +8,7 @@ Personal portfolio built with the Next.js App Router, featuring project case stu
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?logo=vercel)
 
-**Live demo:** [portfolio-website-six-zeta.vercel.app](https://portfolio-website-six-zeta.vercel.app)
+**Live demo:** [pirun-portfolio.vercel.app](https://pirun-portfolio.vercel.app)
 
 ## Features
 
@@ -34,21 +34,21 @@ Clone the repo and install dependencies:
 ```bash
 git clone https://github.com/iceBergxDev/portfolio-website.git
 cd portfolio-website
-npm install
+pnpm install
 ```
 
-A `pnpm-lock.yaml` is also present, so `pnpm install` works as an alternative.
+This project pins pnpm in `package.json` and uses `pnpm-lock.yaml` for reproducible installs.
 
 Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Build for production:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## Project Structure
@@ -71,7 +71,7 @@ src/
 
 ## About
 
-Built by iceBerg, a developer with 4+ years of experience across WordPress (Elementor, custom PHP plugins), React, and Next.js, including full-stack apps with Shopify API integration. Works with agencies and clients across Australia, Thailand, and the UK. Background in aircraft maintenance before moving into software development.
+Built by Pirun Kongsaeng, a Senior Web Developer in Bangkok working across WordPress, WooCommerce, Shopify, and Next.js. The portfolio focuses on business websites, online stores, API-connected tools, maintenance work, and project evidence that can be checked without inflated claims.
 
 ## License
 
@@ -79,4 +79,4 @@ Licensed under the [MIT License](./LICENSE).
 
 ## Contact
 
-See the [live site](https://portfolio-website-six-zeta.vercel.app) for contact details.
+See the [live site](https://pirun-portfolio.vercel.app) for contact details.

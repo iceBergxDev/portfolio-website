@@ -33,6 +33,9 @@ export default function Footer() {
                   {label}
                 </Link>
               ))}
+              <Link href="/resume" className="text-sm text-text-muted hover:text-accent transition-colors">
+                Resume
+              </Link>
             </nav>
           </div>
 

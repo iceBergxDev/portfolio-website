@@ -1,6 +1,7 @@
 import PageTransition from '@/components/layout/PageTransition'
 import HeroSection from '@/components/sections/HeroSection'
 import AboutSection from '@/components/sections/AboutSection'
+import CapabilitiesSection from '@/components/sections/CapabilitiesSection'
 import SkillsMarquee from '@/components/sections/SkillsMarquee'
 import ExperienceSection from '@/components/sections/ExperienceSection'
 import FeaturedWorkSection from '@/components/sections/FeaturedWorkSection'
@@ -11,9 +12,10 @@ export default function HomePage() {
     <PageTransition>
       <HeroSection />
       <AboutSection />
+      <CapabilitiesSection />
       <SkillsMarquee />
-      <ExperienceSection />
       <FeaturedWorkSection />
+      <ExperienceSection />
       <ContactSection />
     </PageTransition>
   )

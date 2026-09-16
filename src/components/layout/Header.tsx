@@ -46,6 +46,7 @@ export default function Header() {
             <Link href="/#about" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">About</Link>
             <Link href="/#experience" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Experience</Link>
             <Link href="/projects" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Projects</Link>
+            <Link href="/resume" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Resume</Link>
             <Link href="/#contact" className="text-sm text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Contact</Link>
           </nav>
 
@@ -74,6 +75,7 @@ export default function Header() {
           <Link href="/#about" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">About</Link>
           <Link href="/#experience" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Experience</Link>
           <Link href="/projects" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Projects</Link>
+          <Link href="/resume" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Resume</Link>
           <Link href="/#contact" onClick={close} className="text-xl font-medium text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Contact</Link>
         </nav>
       </div>

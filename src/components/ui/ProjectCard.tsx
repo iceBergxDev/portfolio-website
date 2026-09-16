@@ -1,87 +1,121 @@
 'use client'
 
-import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
+import { ViewTransition } from 'react'
+import type { PointerEvent } from 'react'
 import { Project } from '@/types/project'
 import { getTagLogo } from '@/lib/tech-logos'
+import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
 
 interface ProjectCardProps {
   project: Project
   sizes?: string
   headingLevel?: 'h2' | 'h3'
+  variant?: 'featured' | 'supporting'
 }
 
-export default function ProjectCard({ project, sizes = '(max-width: 768px) 100vw, 33vw', headingLevel = 'h3' }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  sizes = '(max-width: 768px) 100vw, 33vw',
+  headingLevel = 'h3',
+  variant = 'supporting',
+}: ProjectCardProps) {
   const Heading = headingLevel
-  const cardRef = useRef<HTMLDivElement>(null)
-  const prefersReducedMotion = useReducedMotion()
+  const isFeatured = variant === 'featured'
+  const visibleTags = project.tags.slice(0, 3)
+  const actionLabel = project.hasCaseStudy ? 'View case study' : 'View project details'
+  const isContainedCover = project.coverFit === 'contain'
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const hasSharedCover = !project.heroImage || project.heroImage === project.coverImage
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (prefersReducedMotion) return
-    const card = cardRef.current
-    if (!card) return
-    const rect = card.getBoundingClientRect()
-    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`)
-    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`)
+  function updatePointerSpotlight(event: PointerEvent<HTMLAnchorElement>) {
+    if (prefersReducedMotion || event.pointerType !== 'mouse') return
+
+    const bounds = event.currentTarget.getBoundingClientRect()
+    event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`)
+    event.currentTarget.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`)
   }
 
-  return (
+  const cover = (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      className="relative bg-surface-2 rounded-xl overflow-hidden border border-border group hover:border-accent/30 transition-colors duration-300"
+      className={`relative aspect-[16/10] overflow-hidden ${isContainedCover ? 'bg-white p-8 sm:p-10' : 'bg-surface'}`}
     >
-      {!prefersReducedMotion && (
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            background:
-              'radial-gradient(200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), color-mix(in srgb, var(--color-accent) 15%, transparent), transparent 80%)',
-          }}
-        />
-      )}
-      <div className={`relative h-48 overflow-hidden flex items-center justify-center ${project.coverStyle === 'logo' ? 'bg-white p-8' : 'bg-surface'}`} style={{ viewTransitionName: `project-cover-${project.slug}` }}>
-        <Image
-          src={project.coverImage}
-          alt={project.title}
-          fill
-          className={project.coverStyle === 'logo' ? 'object-contain p-8' : 'object-cover group-hover:scale-105 transition-transform duration-500'}
-          sizes={sizes}
-        />
-      </div>
-      <div className="relative p-5">
-        <Heading className="font-bold text-text mb-2 group-hover:text-accent transition-colors">{project.title}</Heading>
-        <p className="text-sm text-text-muted mb-4 leading-relaxed">{project.shortDescription}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, index) => {
-            const logo = getTagLogo(tag)
-            return (
-              <motion.span
-                key={tag}
-                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 6 }}
-                whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.25, delay: index * 0.04 }}
-                className="inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full bg-accent/10 text-accent"
-              >
-                {logo && <Image src={logo} alt={tag} width={12} height={12} className="shrink-0" unoptimized />}
-                {tag}
-              </motion.span>
-            )
-          })}
-        </div>
-        {project.hasCaseStudy && (
-          <Link
-            href={`/case-study/${project.slug}`}
-            className="inline-block text-sm text-accent hover:text-accent-hover font-medium transition-transform duration-200 hover:translate-x-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
-          >
-            View Case Study →
-          </Link>
-        )}
-      </div>
+      <Image
+        src={project.coverImage}
+        alt={project.coverAlt}
+        fill
+        className={isContainedCover ? 'object-contain' : 'object-cover'}
+        style={{ objectPosition: project.coverPosition ?? 'center center' }}
+        sizes={sizes}
+      />
     </div>
+  )
+
+  return (
+    <article data-project-card={project.slug} className="h-full">
+      <Link
+        href={`/case-study/${project.slug}`}
+        aria-label={`View project: ${project.title}`}
+        onPointerMove={updatePointerSpotlight}
+        className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-surface-2 transition-[border-color,box-shadow] duration-200 hover:border-accent/50 hover:shadow-2xl hover:shadow-black/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
+      >
+        {!prefersReducedMotion && (
+          <span
+            data-pointer-spotlight
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-20 opacity-0 transition-opacity duration-200 group-hover:opacity-100 motion-reduce:hidden"
+            style={{
+              background: 'radial-gradient(420px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(251, 191, 36, 0.14), transparent 68%)',
+            }}
+          />
+        )}
+
+        {hasSharedCover ? (
+          <ViewTransition
+            name={`project-cover-${project.slug}`}
+            share="project-cover-morph"
+            default="none"
+          >
+            {cover}
+          </ViewTransition>
+        ) : cover}
+
+        <div className={`flex flex-1 flex-col ${isFeatured ? 'p-6 md:p-7' : 'p-5'}`}>
+          <p className="mb-3 flex flex-wrap items-center gap-x-2 text-xs text-text-muted">
+            <span className="font-medium text-accent">{project.status}</span>
+            {project.year && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>{project.year}</span>
+              </>
+            )}
+          </p>
+
+          <Heading className={`${isFeatured ? 'text-xl md:text-2xl' : 'text-lg'} mb-3 font-bold tracking-tight text-text transition-colors duration-200 group-hover:text-accent`}>
+            {project.title}
+          </Heading>
+          <p className={`${isFeatured ? 'text-[15px]' : 'text-sm'} mb-5 leading-relaxed text-text-muted`}>
+            {project.shortDescription}
+          </p>
+
+          <div data-project-tags className="mb-5 mt-auto flex flex-wrap gap-2">
+            {visibleTags.map((tag) => {
+              const logo = getTagLogo(tag)
+              return (
+                <span key={tag} className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-2 py-1 text-xs text-accent">
+                  {logo && <Image src={logo} alt="" aria-hidden="true" width={12} height={12} className="shrink-0" unoptimized />}
+                  {tag}
+                </span>
+              )
+            })}
+          </div>
+
+          <span className="text-sm font-medium text-accent transition-colors duration-200 group-hover:text-accent-hover">
+            {actionLabel} <span aria-hidden="true">→</span>
+          </span>
+        </div>
+      </Link>
+    </article>
   )
 }

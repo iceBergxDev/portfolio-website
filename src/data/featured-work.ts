@@ -1,5 +1,5 @@
 import { allProjects } from './all-projects'
 
-const FEATURED_SLUGS = ['gatac', 'foley', 'aj-flooring']
+const FEATURED_SLUGS = ['gatac', 'storyfilms', 'mdf', 'foley']
 
-export const featuredWork = allProjects.filter((p) => FEATURED_SLUGS.includes(p.slug))
+export const featuredWork = FEATURED_SLUGS.flatMap((slug) => allProjects.filter((project) => project.slug === slug))

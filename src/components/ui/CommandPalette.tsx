@@ -1,14 +1,14 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
-import { caseStudies } from '@/data/case-studies'
+import { projectDetails } from '@/data/case-studies'
 
 type Command = {
   id: string
   label: string
-  group: 'Navigate' | 'Case Studies'
+  group: 'Navigate' | 'Projects'
   action: () => void
 }
 
@@ -35,6 +35,8 @@ export default function CommandPalette() {
   const inputRef = useRef<HTMLInputElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
+  const pathname = usePathname()
+  const isProjectRoute = pathname === '/projects' || pathname.startsWith('/case-study/')
 
   const close = useCallback(() => {
     setOpen(false)
@@ -47,14 +49,16 @@ export default function CommandPalette() {
       ...c,
       action: () => router.push(navHrefs[c.id]),
     }))
-    const studies: Command[] = caseStudies.map((cs) => ({
-      id: `case-${cs.slug}`,
-      label: cs.title,
-      group: 'Case Studies',
-      action: () => router.push(`/case-study/${cs.slug}`),
+    if (!isProjectRoute) return nav
+
+    const projects: Command[] = projectDetails.map((project) => ({
+      id: `project-${project.slug}`,
+      label: project.title,
+      group: 'Projects',
+      action: () => router.push(`/case-study/${project.slug}`),
     }))
-    return [...nav, ...studies]
-  }, [router])
+    return [...nav, ...projects]
+  }, [router, isProjectRoute])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -127,8 +131,6 @@ export default function CommandPalette() {
     if (e.target === e.currentTarget) close()
   }
 
-  let runningIndex = -1
-
   return (
     <AnimatePresence>
       {open && (
@@ -157,7 +159,7 @@ export default function CommandPalette() {
                 ref={inputRef}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Jump to a section or case study..."
+                placeholder={isProjectRoute ? 'Jump to a section or project…' : 'Jump to a section or page…'}
                 className="w-full bg-transparent text-sm text-text placeholder:text-text-muted focus:outline-none"
               />
               <kbd className="hidden sm:inline text-[10px] text-text-muted border border-border rounded px-1.5 py-0.5 shrink-0">Esc</kbd>
@@ -168,21 +170,21 @@ export default function CommandPalette() {
                 <p className="px-4 py-6 text-sm text-text-muted text-center">No matching commands.</p>
               )}
 
-              {(['Navigate', 'Case Studies'] as const).map((group) => {
+              {(['Navigate', 'Projects'] as const).map((group) => {
                 const groupItems = filtered.filter((c) => c.group === group)
                 if (groupItems.length === 0) return null
                 return (
                   <div key={group} className="mb-2 last:mb-0">
                     <p className="px-4 pb-1 pt-2 text-[10px] uppercase tracking-widest text-accent">{group}</p>
                     {groupItems.map((cmd) => {
-                      runningIndex += 1
-                      const isActive = runningIndex === activeIndex
+                      const commandIndex = filtered.indexOf(cmd)
+                      const isActive = commandIndex === activeIndex
                       return (
                         <button
                           key={cmd.id}
                           type="button"
                           onClick={() => runCommand(cmd)}
-                          onMouseEnter={() => setActiveIndex(runningIndex)}
+                          onMouseEnter={() => setActiveIndex(commandIndex)}
                           className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                             isActive ? 'bg-accent/10 text-text' : 'text-text-muted hover:bg-surface-2'
                           }`}

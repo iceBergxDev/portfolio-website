@@ -1,0 +1,151 @@
+{
+  "headline": "Senior Web Developer | WordPress, WooCommerce, Shopify & Next.js",
+  "summary": "I build new websites and fix the ones already in use. Most of my work is with WordPress, WooCommerce and Shopify. I also build Next.js applications, connect APIs and work on technical SEO, page speed, testing and deployment.",
+  "capabilities": [
+    {
+      "title": "WordPress websites",
+      "description": "Build and maintain WordPress sites, custom themes, plugins and Elementor pages."
+    },
+    {
+      "title": "Online stores",
+      "description": "Build and fix WooCommerce and Shopify stores, product pages and checkout flows."
+    },
+    {
+      "title": "Custom web applications",
+      "description": "Build Next.js tools and connect store, customer and order data through APIs."
+    },
+    {
+      "title": "SEO and performance",
+      "description": "Fix technical SEO issues, set up analytics and test page speed."
+    },
+    {
+      "title": "Live-site support",
+      "description": "Investigate issues, prepare rollback steps, test releases and document changes."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Entelech Digital",
+      "role": "Senior Developer",
+      "period": "February 2026 – Present",
+      "current": true,
+      "highlights": [
+        "Built a Next.js ordering portal connected to Shopify, with customer account access, draft orders and live store data.",
+        "Build WordPress and PHP tools for inspection forms, pricing checks and other day-to-day work.",
+        "Fix WooCommerce catalogue, quotation and product-data issues on live sites.",
+        "Prepare backups, rollback steps and release checks before changing live websites.",
+        "Set up analytics, review technical SEO issues and test important customer journeys."
+      ],
+      "resumeHighlights": [
+        "Built a Next.js ordering portal connected to Shopify, with customer account access, draft orders and live store data.",
+        "Build WordPress and PHP tools for inspection forms, pricing checks and other day-to-day work.",
+        "Fix WooCommerce catalogue, quotation and product-data issues on live sites.",
+        "Prepare backups, rollback steps and release checks before changing live websites.",
+        "Set up analytics, review technical SEO issues and test important customer journeys."
+      ]
+    },
+    {
+      "company": "Geekster Digital Solution",
+      "role": "WordPress Developer",
+      "period": "December 2024 – July 2025",
+      "current": false,
+      "highlights": [
+        "Built WordPress websites, WooCommerce stores and custom themes for retail and service businesses.",
+        "Connected WooCommerce to inventory data and automated follow-up emails.",
+        "Set up Google Tag Manager, Google Analytics 4 and Search Console for site tracking and SEO checks.",
+        "Built multilingual WordPress sites with WPML and Polylang."
+      ],
+      "resumeHighlights": [
+        "Built WordPress websites, WooCommerce stores and custom themes for retail and service businesses.",
+        "Connected WooCommerce to inventory data and automated follow-up emails.",
+        "Set up Google Tag Manager, Google Analytics 4 and Search Console for site tracking and SEO checks.",
+        "Built multilingual WordPress sites with WPML and Polylang."
+      ]
+    },
+    {
+      "company": "TMES Co., Ltd.",
+      "role": "UX/UI Designer / WordPress Developer",
+      "period": "May 2024 – November 2024",
+      "current": false,
+      "highlights": [
+        "Designed page layouts, signup and purchase flows, and contact forms in Figma.",
+        "Turned approved designs into responsive WordPress pages with Elementor Pro.",
+        "Worked through briefs, revisions and handoff details with the team before launch."
+      ],
+      "resumeHighlights": [
+        "Designed page layouts, signup and purchase flows, and contact forms in Figma.",
+        "Turned approved designs into responsive WordPress pages with Elementor Pro.",
+        "Worked through briefs, revisions and handoff details with the team before launch."
+      ]
+    },
+    {
+      "company": "Thai Maritime Enforcement Command Center",
+      "role": "Webmaster / IT Support",
+      "period": "October 2021 – May 2024",
+      "current": false,
+      "highlights": [
+        "Maintained the organisation's WordPress website, including content, software updates and routine security checks.",
+        "Updated website content and structure to support government ITA compliance requirements.",
+        "Handled software troubleshooting, system maintenance and video-conferencing support for internal teams."
+      ],
+      "resumeHighlights": [
+        "Maintained the organisation's WordPress website, including content, software updates and routine security checks.",
+        "Updated website content and structure to support government ITA compliance requirements.",
+        "Handled software troubleshooting, system maintenance and video-conferencing support for internal teams."
+      ]
+    },
+    {
+      "company": "Royal Thai Naval Air Division",
+      "role": "Aircraft Mechanic",
+      "period": "April 2019 – October 2021",
+      "current": false,
+      "highlights": [
+        "Inspected, maintained and repaired helicopter engines, gearboxes and related electrical and instrumentation components.",
+        "Followed technical manuals, checklists and handover routines where accuracy mattered."
+      ],
+      "resumeHighlights": [
+        "Inspected, maintained and repaired helicopter engines, gearboxes and related electrical and instrumentation components.",
+        "Followed technical manuals, checklists and handover routines where accuracy mattered."
+      ]
+    }
+  ],
+  "skillGroups": [
+    {
+      "title": "CMS and ecommerce",
+      "skills": ["WordPress", "WooCommerce", "Shopify", "Elementor", "ACF"]
+    },
+    {
+      "title": "Languages and frameworks",
+      "skills": ["PHP", "JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "Tailwind CSS"]
+    },
+    {
+      "title": "Data and API work",
+      "skills": ["API integration", "Shopify Admin API", "PostgreSQL", "MySQL", "Workflow automation"]
+    },
+    {
+      "title": "Quality and delivery",
+      "skills": ["Git", "Testing", "Deployment checks", "Rollback planning", "Website maintenance"]
+    },
+    {
+      "title": "Analytics and SEO",
+      "skills": ["Web performance", "Technical SEO", "Google Tag Manager", "Google Analytics 4", "Google Search Console"]
+    }
+  ],
+  "education": [
+    {
+      "qualification": "High Vocational Certificate in Aircraft Engine Mechanics",
+      "institution": "Naval Rating School",
+      "period": "2017–2019",
+      "gpa": "3.66"
+    }
+  ],
+  "contact": {
+    "name": "Pirun Kongsaeng",
+    "location": "Bangkok, Thailand",
+    "phone": "+66 84 996 2966",
+    "email": "pirun.ks@gmail.com",
+    "portfolio": "https://pirun-portfolio.vercel.app",
+    "linkedin": "https://www.linkedin.com/in/icebergx/",
+    "github": "https://github.com/iceBergxDev"
+  }
+}

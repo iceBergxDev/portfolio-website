@@ -2,11 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, useReducedMotion, type Variants } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion, type Variants } from 'framer-motion'
 
 const ease = [0.23, 1, 0.32, 1] as [number, number, number, number]
-const TAGLINE = 'I build fast, SEO-strong websites for clients in Thailand, Australia, and the UK.'
 
 const container: Variants = {
   hidden: {},
@@ -16,41 +14,6 @@ const container: Variants = {
 const item: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
-}
-
-function TypewriterTagline() {
-  const shouldReduceMotion = useReducedMotion()
-  const [typedChars, setTypedChars] = useState(0)
-
-  // Reduced motion: skip the interval entirely and derive the final state
-  // directly during render instead of forcing it via setState in an effect.
-  const visibleChars = shouldReduceMotion ? TAGLINE.length : typedChars
-  const done = shouldReduceMotion ? true : typedChars >= TAGLINE.length
-
-  useEffect(() => {
-    if (shouldReduceMotion) return
-
-    let i = 0
-    const interval = setInterval(() => {
-      i += 1
-      setTypedChars(i)
-      if (i >= TAGLINE.length) clearInterval(interval)
-    }, 25)
-
-    return () => clearInterval(interval)
-  }, [shouldReduceMotion])
-
-  return (
-    <span className="font-mono">
-      {TAGLINE.slice(0, visibleChars)}
-      {!shouldReduceMotion && (
-        <span
-          className={`inline-block w-[0.5em] h-[1em] -mb-[0.15em] ml-0.5 bg-accent ${done ? 'animate-caret-blink' : ''}`}
-          aria-hidden="true"
-        />
-      )}
-    </span>
-  )
 }
 
 export default function HeroSection() {
@@ -78,25 +41,25 @@ export default function HeroSection() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={item} className="w-8 h-0.5 bg-accent mb-6" />
+          <motion.p variants={item} className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            Pirun Kongsaeng
+          </motion.p>
           <motion.h1
             variants={item}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text leading-tight mb-6"
-          >
-            Pirun<br />Kongsaeng
-          </motion.h1>
+            className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight text-text sm:text-5xl lg:text-6xl"
+          >Senior Web Developer in Bangkok</motion.h1>
           <motion.p
             variants={item}
-            className="text-text-muted text-lg mb-8 max-w-md leading-relaxed"
+            className="mb-8 max-w-lg text-base leading-relaxed text-text-muted sm:text-lg"
           >
-            <TypewriterTagline />
+            I build new websites and fix the ones already in use. Most of my work is with WordPress, WooCommerce and Shopify. I also build Next.js applications, connect APIs and work on technical SEO and page speed.
           </motion.p>
           <motion.div variants={item} className="flex flex-wrap items-center gap-4">
             <Link
               href="/#works"
               className="px-6 py-3 bg-accent text-bg font-semibold rounded-lg hover:bg-accent-hover transition-colors"
             >
-              View Work
+              See my work
             </Link>
           </motion.div>
         </motion.div>
